@@ -65,7 +65,7 @@ else:  # for newer Anki versions try the latest version and hope for the best
     dbcss = fileversions_for_anki_version[max(fileversions_for_anki_version, key=int)]
 
 dbcss_abs = os.path.join(addon_path, dbcss)
-imgname = gc("Image name for file in user_files subfolder", "")
+imgname = gc("Image name for background", "")
 img_web_rel_path  = f"/_addons/{addonfoldername}/user_files/background/{imgname}"
 merged = "web/deckbrowser.css"
 merged_abs = os.path.join(addon_path, merged)
