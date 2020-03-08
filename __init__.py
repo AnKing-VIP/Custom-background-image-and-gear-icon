@@ -116,7 +116,6 @@ if not old_anki:
 
 gearname = gc("Image name for gear", "gears.svg")
 def replace_gears(deck_browser, content):
-    print(f"in replace_gears and type of content.tree is {type(content.tree)}")  # that's a string
     old = """<img src='/_anki/imgs/gears.svg'"""
     new = f"""<img src='/_addons/{addonfoldername}/user_files/gear/{gearname}'"""
     content.tree = content.tree.replace(old, new)
