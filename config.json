@@ -1,6 +1,7 @@
 {
     "Image name for background": "Christ&Surgeon.png",   
     "Image name for gear": "AnKing.png",
+    "Toolbar image": false,
     "background-size": "contain",
     "background-position": "center",
     "background-attachment": "fixed",

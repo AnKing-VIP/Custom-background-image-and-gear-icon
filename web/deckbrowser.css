@@ -71,7 +71,7 @@ background-repeat: no-repeat;
 }
 
 .current {
-  background-color: #e7e7e7;
+  background-color: rgba(231, 231, 231, 0.3)/*  #e7e7e7; */
 }
 
 .decktd {
