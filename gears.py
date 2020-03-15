@@ -32,7 +32,10 @@ else:
 
 def replace_gears(deck_browser, content):
     old = """<img src='/_anki/imgs/gears.svg'"""
-    new = f"""<img src='/_addons/{addonfoldername}/user_files/gear/{gearname}'"""
+    if gc("Image name for gear") == "gears.svg":
+        new = old
+    else:
+        new = f"""<img src='/_addons/{addonfoldername}/user_files/gear/{gearname}'"""
     content.tree = content.tree.replace(old, new)
 
 
