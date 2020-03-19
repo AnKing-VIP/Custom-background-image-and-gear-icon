@@ -1,11 +1,20 @@
-<div style="color: red; font-size: 16px; background-color: rgb(25, 25, 25); text-align: center;"><br>Restart is required for any change to take effect<br></div>
-<hr>
+<div style="vertical-align:middle;"><a href="https://www.ankingmed.com"><img src="../../addons21/1556734708/AnKing/AnKingSmall.png"></a><a href="https://www.ankingmed.com"><img src="../../addons21/1556734708/AnKing/TheAnKing.png"></a></div>
 
-Created by [The AnKing](https://www.ankingmed.com). <b>If you enjoy this add-on or want individualized Anki help</b>, please consider supporting us on **[Patreon](https://www.patreon.com/ankingmed)**, **[YouTube](https://www.youtube.com/theanking)** and **[Instagram](https://www.instagram.com/ankingmed)**/**[Facebook](https://www.facebook.com/ankingmed)** Thanks!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.facebook.com/ankingmed"><img src="../../addons21/1556734708/AnKing/Facebook.jpg"></a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.instagram.com/ankingmed"><img src="../../addons21/1556734708/AnKing/Instagram.jpg"></a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.youtube.com/theanking"><img src="../../addons21/1556734708/AnKing/YouTube.jpg"></a>
+
+<a href="https://www.patreon.com/ankingmed"><img src="../../addons21/1556734708/AnKing/Patreon.jpg"></a>
 
 ---
 
-You can add custom images to the folders "background" and "gears" These are located within the "user_files" folder in the add-on folder. You see this folder if you click the button "View Files" on the right of the add-on manager window when you have selected this add-on. I would recommend using 20-50% opacity images for the background. You can also add custom css style rules by modifying the css files inside "user_files/css" folder in the add-on folder.
+<div style="color: #4297F9;"><b>If you enjoy this add-on or want individualized Anki help, please consider supporting us!</b></div>
+
+<div style="color: red; font-size: 16px; background-color: rgb(25, 25, 25); text-align: center;"><br>Restart is required for any change to take effect<br></div>
+
+---
+
+You can add custom images to the folders "background" and "gears" These are located within the "user_files" folder in the add-on folder. You see this folder if you click the button "View Files" on the right of the add-on manager window when you have selected this add-on. I would recommend using 20-50% opacity images for the background.
 
 <b>Background images</b> were obtained from [Pexels.com](https://www.pexels.com/photo-license/)
 
