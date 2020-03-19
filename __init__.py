@@ -1,6 +1,8 @@
 # Copyright: ijgnd
-#            AnKingMed
-# License: GNU AGPL, version 3 or later; http://www.gnu.org/licenses/agpl.html 
+#            The AnKing
+# Code License: GNU AGPL, version 3 or later; http://www.gnu.org/licenses/agpl.html 
+# Background images  were obtained from Pexels.com under this license https://www.pexels.com/photo-license/
+# Gear icons were obtained from Wikimedia Commons https://commons.wikimedia.org/wiki/Category:Noto_Color_Emoji_Pie (license listed in link)
 
 import os
 import random
