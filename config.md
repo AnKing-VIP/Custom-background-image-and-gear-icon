@@ -1,10 +1,10 @@
-<center><div style="vertical-align:middle;"><a href="https://www.ankingmed.com"><img src="../../addons21/1556734708/AnKing/AnKingSmall.png"></a><a href="https://www.ankingmed.com"><img src="../../addons21/1556734708/AnKing/TheAnKing.png"></a></div></center>
+<center><div style="vertical-align:middle;"><a href="https://www.ankingmed.com"><img src="../../addons21/Custom background image and gear icon/AnKing/AnKingSmall.png"></a><a href="https://www.ankingmed.com"><img src="../../addons21/Custom background image and gear icon/AnKing/TheAnKing.png"></a></div></center>
 
-<center><a href="https://www.facebook.com/ankingmed"><img src="../../addons21/1556734708/AnKing/Facebook.jpg"></a>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.instagram.com/ankingmed"><img src="../../addons21/1556734708/AnKing/Instagram.jpg"></a>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.youtube.com/theanking"><img src="../../addons21/1556734708/AnKing/YouTube.jpg"></a></center>
+<center><a href="https://www.facebook.com/ankingmed"><img src="../../addons21/Custom background image and gear icon/AnKing/Facebook.jpg"></a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.instagram.com/ankingmed"><img src="../../addons21/Custom background image and gear icon/AnKing/Instagram.jpg"></a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.youtube.com/theanking"><img src="../../addons21/Custom background image and gear icon/AnKing/YouTube.jpg"></a></center>
 
-<center><a href="https://www.patreon.com/ankingmed"><img src="../../addons21/1556734708/AnKing/Patreon.jpg"></a></center>
+<center><a href="https://www.patreon.com/ankingmed"><img src="../../addons21/Custom background image and gear icon/AnKing/Patreon.jpg"></a></center>
 
 ---
 
