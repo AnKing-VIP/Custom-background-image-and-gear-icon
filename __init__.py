@@ -71,6 +71,7 @@ def replace_css(web_content, context):
     for idx, filename in enumerate(web_content.css):
         if filename in css_files_to_replace:
             web_content.css[idx] = f"/_addons/{addonfoldername}/web/css/{filename}"
+            web_content.css.append(f"/_addons/{addonfoldername}/user_files/css/custom_{filename}")
 gui_hooks.webview_will_set_content.append(replace_css)
 
 
