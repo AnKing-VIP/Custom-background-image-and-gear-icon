@@ -11,24 +11,13 @@
   white-space: nowrap;
 }
 
-body.nightMode {
-background-image: url("/_addons/Custom background image and gear icon/user_files/background/Christ&Surgeon.png"); 
-background-size: contain;  
-background-position: center;
-background-attachment: fixed; 
-background-repeat: no-repeat;
-}
 body {
-background-image: url("/_addons/Custom background image and gear icon/user_files/background/Christ&Surgeon.png"); 
-background-size: contain;  
-background-position: center;
-background-attachment: fixed; 
-background-repeat: no-repeat;
   margin: 0;
   padding: 0;
   -webkit-user-select: none;
   overflow: hidden;
 }
+
 * {
   -webkit-user-drag: none;
 }

@@ -11,6 +11,10 @@
   color: #C35617;
 }
 
+.zero-count {
+  color: #ddd;
+}
+
 .nightMode .review-count {
   color: #5CcC00;
 }
@@ -20,8 +24,12 @@
 .nightMode .learn-count {
   color: #FF935B;
 }
+.nightMode .zero-count {
+  color: #444;
+}
 
 /* Copyright: Ankitects Pty Ltd and contributors
+ *            AnKingMed
  * License: GNU AGPL, version 3 or later; http://www.gnu.org/licenses/agpl.html */
 a.deck {
   color: black;
@@ -51,11 +59,23 @@ tr.drag-hover td {
 }
 
 body {
+
+    background-image: url("/_addons/Custom background image and gear icon/user_files/background/BeachAerial.png"); 
+    background-size: cover;  
+    background-position: center;
+    background-attachment: fixed; 
+    background-repeat: no-repeat;
   margin: 1em;
   -webkit-user-select: none;
 }
 
 body.nightMode {
+
+    background-image: url("/_addons/Custom background image and gear icon/user_files/background/BeachAerial.png"); 
+    background-size: cover;  
+    background-position: center;
+    background-attachment: fixed; 
+    background-repeat: no-repeat;
   margin: 1em;
   -webkit-user-select: none;
 }
@@ -111,7 +131,7 @@ body.nightMode {
   color: white;
 }
 .nightMode .gears {
-  filter: invert(180);
+  /* filter: invert(180); */
 }
 .nightMode .filtered {
   color: #77ccff !important;
