@@ -1,7 +1,7 @@
 # Custom background image and gear icon
  Customize the background image in the main Anki screen as well as replace the gear icon with an image
  
- See this link for Ankiweb download and details: 
+ See this link for Ankiweb download and details: https://ankiweb.net/shared/info/1210908941
 
  <img src="https://raw.githubusercontent.com/AnKingMed/Custom-background-image-and-gear-icon/master/screenshots/Backgrounds.jpg?raw=true">
 <img src="https://raw.githubusercontent.com/AnKingMed/Custom-background-image-and-gear-icon/master/screenshots/Backgrounds.gif?raw=true">
