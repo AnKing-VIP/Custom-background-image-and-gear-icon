@@ -1,4 +1,5 @@
 {
-    "package":"Custom background image and gear icon",
-    "name": "Custom background image and gear icon"
+    "min_point_version": 22,
+    "name": "Custom background image and gear icon",
+    "package": "Custom_background_image_and_gear_icon"
 }

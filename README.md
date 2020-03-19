@@ -3,6 +3,10 @@
  
  See this link for Ankiweb download and details: 
 
+<b>Background images</b> were obtained from [Pexels.com](https://www.pexels.com/photo-license/)
+
+<b>Gear icons</b> were obtained from [Wikimedia Commons](https://commons.wikimedia.org/wiki/Category:Noto_Color_Emoji_Pie)
+
 ---
 **Please consider supporting us via:**
 
