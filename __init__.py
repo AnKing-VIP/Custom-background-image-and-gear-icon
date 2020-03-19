@@ -100,3 +100,12 @@ def replace_gears(deck_browser, content):
     else:
         content.tree = content.tree.replace(old, old)
 gui_hooks.deck_browser_will_render_content.append(replace_gears)
+
+from aqt.utils import openFolder 
+from aqt.qt import * 
+imgfolder = os.path.join(addon_path, "user_files") 
+action = QAction(mw) 
+action.setText("Background/gear image folder") 
+action.setShortcut(QKeySequence("Ctrl+shift+b"))
+mw.form.menuTools.addAction(action) 
+action.triggered.connect(lambda: openFolder(imgfolder))
