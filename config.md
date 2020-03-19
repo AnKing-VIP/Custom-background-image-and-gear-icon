@@ -5,7 +5,7 @@ Created by [The AnKing](https://www.ankingmed.com). <b>If you enjoy this add-on 
 
 ---
 
-You can add custom images to the folders "background" and "gears" These are located within the "user_files" folder in the add-on folder. You see this folder if you click the button "View Files" on the right of the add-on manager window when you have selected this add-on. I would recommend using 20-50% opacity images for the background.
+You can add custom images to the folders "background" and "gears" These are located within the "user_files" folder in the add-on folder. You see this folder if you click the button "View Files" on the right of the add-on manager window when you have selected this add-on. I would recommend using 20-50% opacity images for the background. You can also add custom css style rules by modifying the css files inside "user_files/css" folder in the add-on folder.
 
 <b>Background images</b> were obtained from [Pexels.com](https://www.pexels.com/photo-license/)
 
