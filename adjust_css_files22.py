@@ -45,11 +45,8 @@ def get_bg_img():
     if val in bgimg_list:
         return val
     else:
-        # if empty or illegal value try to use 'AnKing.png' to signal that an illegal values was used
-        if "AnKing.png" in bgimg_list:
-            return "AnKing.png"
-        else:
-            return ""
+        # if empty or illegal value show no background to signal that an illegal values was used
+        return ""
  
 imgname = get_bg_img()
 

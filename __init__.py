@@ -10,6 +10,7 @@ import random
 from anki.utils import pointVersion
 from aqt import mw
 from aqt import gui_hooks
+from aqt.editor import pics
 
 from .config import addon_path, addonfoldername, gc
 
@@ -77,7 +78,7 @@ gui_hooks.webview_will_set_content.append(replace_css)
 
 def get_gearfile():
     gear_abs = os.path.join(addon_path, "user_files", "gear")
-    gear_list = [os.path.basename(f) for f in os.listdir(gear_abs) if f.endswith((".svg", ".png"))]
+    gear_list = [os.path.basename(f) for f in os.listdir(gear_abs) if f.endswith(pics)]
     val = gc("Image name for gear")
     if val and val.lower() == "random":
         return random.choice(gear_list)
