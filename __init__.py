@@ -12,6 +12,13 @@ from aqt import mw
 from aqt import gui_hooks
 from aqt.editor import pics
 
+#for the toolbar buttons
+from aqt.qt import *
+from aqt.addons import *
+from aqt.utils import openFolder 
+from aqt.qt import * 
+
+
 from .config import addon_path, addonfoldername, gc
 
 
@@ -102,11 +109,25 @@ def replace_gears(deck_browser, content):
         content.tree = content.tree.replace(old, old)
 gui_hooks.deck_browser_will_render_content.append(replace_gears)
 
-from aqt.utils import openFolder 
-from aqt.qt import * 
+
+menu = QMenu(('Custom Background & Gear Icon'), mw)
+mw.form.menuTools.addMenu(menu)
+
+#add config button
+def on_advanced_settings():
+	addonDlg = AddonsDialog(mw.addonManager)
+	addonDlg.accept() #closes addon dialog
+	ConfigEditor(addonDlg,__name__,mw.addonManager.getConfig(__name__))
+
+#menu.addSeparator()
+advanced_settings = QAction('Set up Background/Gear (Config)', mw)
+menu.addAction(advanced_settings)
+advanced_settings.triggered.connect(on_advanced_settings)
+
+#add folder button
 imgfolder = os.path.join(addon_path, "user_files") 
 action = QAction(mw) 
 action.setText("Background/gear image folder") 
 action.setShortcut(QKeySequence("Ctrl+shift+b"))
-mw.form.menuTools.addAction(action) 
+menu.addAction(action) 
 action.triggered.connect(lambda: openFolder(imgfolder))
