@@ -19,9 +19,9 @@ def add_bg_img(filecontent, imgname, location, bodynightreplace=True, overview=F
     if location == "body":
         bg_position = gc("background-position", "center")
         bg_color = gc("background-color main", "")
-    elif location == "top" and gc("Toolbar center or top/bottom") == "top/bottom":
+    elif location == "top" and gc("Toolbar top/bottom"):
         bg_position = "top"
-    elif location == "bottom" and gc("Toolbar center or top/bottom") == "top/bottom":
+    elif location == "bottom" and gc("Toolbar top/bottom"):
         bg_position = "bottom;"
     else:
         bg_position = f"""background-position: {gc("background-position", "center")};""" 

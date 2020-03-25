@@ -27,12 +27,15 @@ _<div style="color:#A440C3;">You can add custom images to the folders "backgroun
     * _<span style="color:red;">preloaded images (all .png) include: AnKing, Beach, BeachAerial, Christ&Surgeon, ColorfulLights, Fire, Island, Milkyway, MoonMountains, NightSky, Ocean, SLCtemple, Sunset, SunsetMountain</div>_
 * **Image name for gear:** _(Anki default is "gears.svg". "Random" will shuffle through defaults)_ name of the file to replace the gear icon. (preloaded images include AnKing.png, flame.svg)
     * _<span style="color:red;">preloaded images (all .png) include: AnKing, Bam, Bullseye, Cowboy, Diamond, Dragon, Fire, Flower, Nerd, Rose, Shield, Skull, Star, Sun</div>_
+* **Reviewer image:** _(true or false)_ show the background image in the reviewer screen
+* **Toolbar top/bottom:** _(true or false)_ Set the background position of the toolbars to top and bottom (if the main background position is set to center, this will look cleaner for most images)
 * **Toolbar image:** _(true or false)_ show the background image in the top and bottom toolbars in addition to the main screen
 
 
 _The following are css values and can be styled with appropriate css values for these css properties. See w3schools.com for more information._
 
 * **background-attachment:** _(default "fixed")_ scroll or fixed
+* **background-color:** _(default "")_ set to "" to have no background color
 * **background-position:** _(default "center")_ left top, right bottom, 25% 50%, 100px 200px, etc
 * **background-repeat:** _(default "no-repeat")_ repeat, repeat-x, repeat-y, no-repeat, etc
 * **background-size:** _(default "contain", but I would recommend "cover" if you set "Toolbar image" to true)_ contain, cover, 50%, 100px, etc 

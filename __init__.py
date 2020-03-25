@@ -136,10 +136,11 @@ advanced_settings = QAction('Set up Background/Gear (Config)', mw)
 menu.addAction(advanced_settings)
 advanced_settings.triggered.connect(on_advanced_settings)
 
+shortcut = gc("Keyboard Shortcut", "Ctrl+shift+b")
 #add folder button
 imgfolder = os.path.join(addon_path, "user_files") 
 action = QAction(mw) 
 action.setText("Background/gear image folder") 
-action.setShortcut(QKeySequence("Ctrl+shift+b"))
+action.setShortcut(QKeySequence(shortcut))
 menu.addAction(action) 
 action.triggered.connect(lambda: openFolder(imgfolder))

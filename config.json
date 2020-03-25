@@ -1,9 +1,10 @@
 {
     "Image name for background": "Milkyway.png",   
     "Image name for gear": "AnKing.png",
+    "Keyboard Shortcut": "Ctrl+Shift+b",
     "Reviewer image": true,
     "Toolbar image": true,
-    "Toolbar center or top/bottom": "top/bottom",
+    "Toolbar top/bottom": true,
     "background-attachment": "fixed",
     "background-color bottom": "",
     "background-color main": "",
