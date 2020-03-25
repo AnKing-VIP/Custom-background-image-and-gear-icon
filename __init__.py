@@ -10,6 +10,14 @@ import random
 from anki.utils import pointVersion
 from aqt import mw
 from aqt import gui_hooks
+from aqt.editor import pics
+
+#for the toolbar buttons
+from aqt.qt import *
+from aqt.addons import *
+from aqt.utils import openFolder 
+from aqt.qt import * 
+
 
 from .config import addon_path, addonfoldername, gc
 
@@ -42,25 +50,37 @@ for f in change_copy:
         filecontent = FO.read()
 
     if v == 22:
-        from .adjust_css_files22 import adjust_deckbrowser_css22, adjust_toolbar_css22, adjust_overview_css22
+        from .adjust_css_files22 import *
         if f == "deckbrowser.css":
             filecontent = adjust_deckbrowser_css22(filecontent)
         if f == "toolbar.css" and gc("Toolbar image"):
             filecontent = adjust_toolbar_css22(filecontent)
         if f == "overview.css":
             filecontent = adjust_overview_css22(filecontent)
+        if f == "toolbar-bottom.css":
+            filecontent = adjust_bottomtoolbar_css22(filecontent)
+        if f == "reviewer.css":
+            filecontent = adjust_reviewer_css22(filecontent)
+        if f == "reviewer-bottom.css":
+            filecontent = adjust_reviewerbottom_css22(filecontent)                        
 
     # for later versions: try the latest
     # this code will likely change when new Anki versions are released which might require 
     # updates of this add-on.
     else: 
-        from .adjust_css_files22 import adjust_deckbrowser_css22, adjust_toolbar_css22, adjust_overview_css22
+        from .adjust_css_files22 import *
         if f == "deckbrowser.css":
             filecontent = adjust_deckbrowser_css22(filecontent)
         if f == "toolbar.css" and gc("Toolbar image"):
             filecontent = adjust_toolbar_css22(filecontent)
         if f == "overview.css":
             filecontent = adjust_overview_css22(filecontent)
+        if f == "toolbar-bottom.css":
+            filecontent = adjust_bottomtoolbar_css22(filecontent)
+        if f == "reviewer.css":
+            filecontent = adjust_reviewer_css22(filecontent)
+        if f == "reviewer-bottom.css":
+            filecontent = adjust_reviewerbottom_css22(filecontent)                           
 
     with open(os.path.join(web_absolute, f), "w") as FO:
         FO.write(filecontent)
@@ -77,7 +97,7 @@ gui_hooks.webview_will_set_content.append(replace_css)
 
 def get_gearfile():
     gear_abs = os.path.join(addon_path, "user_files", "gear")
-    gear_list = [os.path.basename(f) for f in os.listdir(gear_abs) if f.endswith((".svg", ".png"))]
+    gear_list = [os.path.basename(f) for f in os.listdir(gear_abs) if f.endswith(pics)]
     val = gc("Image name for gear")
     if val and val.lower() == "random":
         return random.choice(gear_list)
@@ -100,3 +120,26 @@ def replace_gears(deck_browser, content):
     else:
         content.tree = content.tree.replace(old, old)
 gui_hooks.deck_browser_will_render_content.append(replace_gears)
+
+
+menu = QMenu(('Custom Background & Gear Icon'), mw)
+mw.form.menuTools.addMenu(menu)
+
+#add config button
+def on_advanced_settings():
+	addonDlg = AddonsDialog(mw.addonManager)
+	addonDlg.accept() #closes addon dialog
+	ConfigEditor(addonDlg,__name__,mw.addonManager.getConfig(__name__))
+
+#menu.addSeparator()
+advanced_settings = QAction('Set up Background/Gear (Config)', mw)
+menu.addAction(advanced_settings)
+advanced_settings.triggered.connect(on_advanced_settings)
+
+#add folder button
+imgfolder = os.path.join(addon_path, "user_files") 
+action = QAction(mw) 
+action.setText("Background/gear image folder") 
+action.setShortcut(QKeySequence("Ctrl+shift+b"))
+menu.addAction(action) 
+action.triggered.connect(lambda: openFolder(imgfolder))
