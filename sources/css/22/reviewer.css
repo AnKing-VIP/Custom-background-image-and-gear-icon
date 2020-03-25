@@ -86,18 +86,3 @@ img {
 .nightMode img.drawing {
   filter: invert(1) hue-rotate(180deg);
 }
-body.nightMode {
-
-  background-image: url("/_addons/0customback update/user_files/background/Milkyway.png"); 
-  background-size: cover;  
-  background-position: center;
-  background-attachment: fixed; 
-  background-repeat: no-repeat;}
-body {
-
-  background-image: url("/_addons/0customback update/user_files/background/Milkyway.png"); 
-  background-size: cover;  
-  background-position: center;
-  background-attachment: fixed; 
-  background-repeat: no-repeat;
-}
