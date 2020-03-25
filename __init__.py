@@ -57,7 +57,7 @@ for f in change_copy:
             filecontent = adjust_toolbar_css22(filecontent)
         if f == "overview.css":
             filecontent = adjust_overview_css22(filecontent)
-        if f == "toolbar-bottom.css":
+        if f == "toolbar-bottom.css" and gc("Toolbar image"):
             filecontent = adjust_bottomtoolbar_css22(filecontent)
         if f == "reviewer.css" and gc("Reviewer image"):
             filecontent = adjust_reviewer_css22(filecontent)
@@ -75,7 +75,7 @@ for f in change_copy:
             filecontent = adjust_toolbar_css22(filecontent)
         if f == "overview.css":
             filecontent = adjust_overview_css22(filecontent)
-        if f == "toolbar-bottom.css":
+        if f == "toolbar-bottom.css" and gc("Toolbar image"):
             filecontent = adjust_bottomtoolbar_css22(filecontent)
         if f == "reviewer.css" and gc("Reviewer image"):
             filecontent = adjust_reviewer_css22(filecontent)
