@@ -61,7 +61,7 @@ for f in change_copy:
             filecontent = adjust_bottomtoolbar_css22(filecontent)
         if f == "reviewer.css" and gc("Reviewer image"):
             filecontent = adjust_reviewer_css22(filecontent)
-        if f == "reviewer-bottom.css" and gc("Reviewer image"):
+        if f == "reviewer-bottom.css" and gc("Reviewer image") and gc("Toolbar image"):
             filecontent = adjust_reviewerbottom_css22(filecontent)                        
 
     # for later versions: try the latest
