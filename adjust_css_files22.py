@@ -1,1 +1,1 @@
-#removed temporarily for Patreon-only access
+#removed temporarily for limited beta testing
