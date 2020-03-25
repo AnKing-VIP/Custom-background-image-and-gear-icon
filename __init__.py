@@ -59,9 +59,9 @@ for f in change_copy:
             filecontent = adjust_overview_css22(filecontent)
         if f == "toolbar-bottom.css":
             filecontent = adjust_bottomtoolbar_css22(filecontent)
-        if f == "reviewer.css":
+        if f == "reviewer.css" and gc("Reviewer image"):
             filecontent = adjust_reviewer_css22(filecontent)
-        if f == "reviewer-bottom.css":
+        if f == "reviewer-bottom.css" and gc("Reviewer image"):
             filecontent = adjust_reviewerbottom_css22(filecontent)                        
 
     # for later versions: try the latest
@@ -77,9 +77,9 @@ for f in change_copy:
             filecontent = adjust_overview_css22(filecontent)
         if f == "toolbar-bottom.css":
             filecontent = adjust_bottomtoolbar_css22(filecontent)
-        if f == "reviewer.css":
+        if f == "reviewer.css" and gc("Reviewer image"):
             filecontent = adjust_reviewer_css22(filecontent)
-        if f == "reviewer-bottom.css":
+        if f == "reviewer-bottom.css" and gc("Reviewer image"):
             filecontent = adjust_reviewerbottom_css22(filecontent)                           
 
     with open(os.path.join(web_absolute, f), "w") as FO:
