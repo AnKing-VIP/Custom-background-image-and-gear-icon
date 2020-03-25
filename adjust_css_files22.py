@@ -10,7 +10,7 @@ from aqt.editor import pics
 from .config import addon_path, addonfoldername, gc
 
 
-def add_bg_img(filecontent, imgname, location="body", bodynightreplace=True, overview=False):
+def add_bg_img(filecontent, imgname, location, bodynightreplace=True, overview=False):
     #add background image for normal and nightmode
     img_web_rel_path  = f"/_addons/{addonfoldername}/user_files/background/{imgname}"
     old = "body {"
@@ -21,12 +21,15 @@ def add_bg_img(filecontent, imgname, location="body", bodynightreplace=True, ove
         bg_color = gc("background-color main", "")
     elif location == "top" and gc("Toolbar center or top/bottom") == "top/bottom":
         bg_position = "top"
-        bg_color = gc("background-color top", "")
     elif location == "bottom" and gc("Toolbar center or top/bottom") == "top/bottom":
         bg_position = "bottom;"
-        bg_color = gc("background-color bottom", "")
     else:
         bg_position = f"""background-position: {gc("background-position", "center")};""" 
+    if location == "top":
+        bg_color = gc("background-color top", "")
+    elif location == "bottom":
+        bg_color = gc("background-color bottom", "")        
+
            
     background = f"""
     background-image: url("{img_web_rel_path}"); 
