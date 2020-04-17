@@ -1,9 +1,15 @@
 {
-    "Image name for background": "Christ&Surgeon.png",   
+    "Image name for background": "Milkyway.png",   
     "Image name for gear": "AnKing.png",
-    "Toolbar image": false,
-    "background-size": "contain",
-    "background-position": "center",
+    "Keyboard Shortcut": "Ctrl+Shift+b",
+    "Reviewer image": true,
+    "Toolbar image": true,
+    "Toolbar top/bottom": true,
     "background-attachment": "fixed",
-    "background-repeat": "no-repeat"
+    "background-color bottom": "",
+    "background-color main": "",
+    "background-color top": "",
+    "background-position": "center",
+    "background-repeat": "no-repeat",
+    "background-size": "cover"
 } 

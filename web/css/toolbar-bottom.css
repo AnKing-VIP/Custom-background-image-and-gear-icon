@@ -1,0 +1,26 @@
+/* Copyright: Ankitects Pty Ltd and contributors
+ * License: GNU AGPL, version 3 or later; http://www.gnu.org/licenses/agpl.html */
+#header {
+  border-bottom: 0;
+  margin-bottom: 6px;
+  margin-top: 0;
+  padding: 9px;
+}
+body {
+
+    background-image: url("/_addons/0customback update/user_files/background/Christ&Surgeon.png"); 
+    background-size: cover;  
+    background-attachment: fixed; 
+    background-repeat: no-repeat;
+    background-position: bottom;;
+    background-color: !important; 
+}
+body.nightMode {
+
+    background-image: url("/_addons/0customback update/user_files/background/Christ&Surgeon.png"); 
+    background-size: cover;  
+    background-attachment: fixed; 
+    background-repeat: no-repeat;
+    background-position: bottom;;
+    background-color: !important; 
+}
