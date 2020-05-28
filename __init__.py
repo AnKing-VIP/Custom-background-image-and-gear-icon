@@ -24,7 +24,7 @@ from .adjust_css_files22 import *
 from .config import addon_path, addonfoldername, gc, getUserOption
 
 from .gui import Manager
-Manager()
+a = Manager()
 
 css_folder_for_anki_version = {
     "22": "22",
