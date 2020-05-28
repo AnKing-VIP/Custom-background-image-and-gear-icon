@@ -29,7 +29,6 @@
 }
 
 /* Copyright: Ankitects Pty Ltd and contributors
- *            AnKingMed
  * License: GNU AGPL, version 3 or later; http://www.gnu.org/licenses/agpl.html */
 a.deck {
   color: black;
@@ -59,25 +58,6 @@ tr.drag-hover td {
 }
 
 body {
-
-    background-image: url("/_addons/0customback update/user_files/background/Christ&Surgeon.png"); 
-    background-size: cover;  
-    background-attachment: fixed; 
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: !important; 
-  margin: 1em;
-  -webkit-user-select: none;
-}
-
-body.nightMode {
-
-    background-image: url("/_addons/0customback update/user_files/background/Christ&Surgeon.png"); 
-    background-size: cover;  
-    background-attachment: fixed; 
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: !important; 
   margin: 1em;
   -webkit-user-select: none;
 }
@@ -137,4 +117,24 @@ body.nightMode {
 }
 .nightMode .filtered {
   color: #77ccff !important;
+}
+body::before {
+
+    background-image: url("/_addons/zCustomback-gui/user_files/background/MoonMountains.png"); 
+    background-size: cover;  
+    background-attachment: fixed; 
+    background-repeat: "no-repeat";
+    background-position: center;
+    background-color: !important; 
+    opacity: .2;
+    content: "";
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    z-index: -99;
+    will-change: transform;
+    transform: scale(1);
+    
 }

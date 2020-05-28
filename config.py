@@ -15,3 +15,25 @@ def gc(arg="", fail=False):
         else:
             return conf
     return fail
+
+
+userOption = None
+
+def _getUserOption(refresh):
+    global userOption
+    if userOption is None or refresh:
+        userOption = mw.addonManager.getConfig(__name__)
+
+
+def getUserOption(key=None, default=None, refresh=False):
+    _getUserOption(refresh)
+    if key is None:
+        return userOption
+    if key in userOption:
+        return userOption[key]
+    else:
+        return default
+
+
+def writeConfig(configToWrite=userOption):
+    mw.addonManager.writeConfig(__name__, configToWrite)

@@ -29,7 +29,6 @@
 }
 
 /* Copyright: Ankitects Pty Ltd and contributors
- *            AnKingMed
  * License: GNU AGPL, version 3 or later; http://www.gnu.org/licenses/agpl.html */
 a.deck {
   color: black;
@@ -59,11 +58,6 @@ tr.drag-hover td {
 }
 
 body {
-  margin: 1em;
-  -webkit-user-select: none;
-}
-
-body.nightMode {
   margin: 1em;
   -webkit-user-select: none;
 }

@@ -16,15 +16,20 @@ from aqt.editor import pics
 from aqt.qt import *
 from aqt.addons import *
 from aqt.utils import openFolder 
+from .adjust_css_files22 import *
 
 
-from .config import addon_path, addonfoldername, gc
 
 
+from .config import addon_path, addonfoldername, gc, getUserOption
+
+from .gui import Manager
+Manager()
 
 css_folder_for_anki_version = {
     "22": "22",
-    "23": "22",  # example: for Anki version 23 use the contents of the folder 22 
+    "23": "22", # example: for Anki version 23 use the contents of the folder 22 
+    "25": "25"  
 }
 
 
@@ -42,47 +47,60 @@ regex = r"(user_files.*|web.*)"
 mw.addonManager.setWebExports(__name__, regex)
 
 
-# on startup: combine template files with config and write into webexports folder
-change_copy = [os.path.basename(f) for f in os.listdir(source_absolute) if f.endswith(".css")]
-for f in change_copy:
-    with open(os.path.join(source_absolute, f)) as FO:
-        filecontent = FO.read()
+def update_css():
+    # on startup: combine template files with config and write into webexports folder
+    change_copy = [os.path.basename(f) for f in os.listdir(source_absolute) if f.endswith(".css")]
+    for f in change_copy:
+        with open(os.path.join(source_absolute, f)) as FO:
+            filecontent = FO.read()
 
-    if v == 22:
-        from .adjust_css_files22 import *
-        if f == "deckbrowser.css":
-            filecontent = adjust_deckbrowser_css22(filecontent)
-        if f == "toolbar.css" and gc("Toolbar image"):
-            filecontent = adjust_toolbar_css22(filecontent)
-        if f == "overview.css":
-            filecontent = adjust_overview_css22(filecontent)
-        if f == "toolbar-bottom.css" and gc("Toolbar image"):
-            filecontent = adjust_bottomtoolbar_css22(filecontent)
-        if f == "reviewer.css" and gc("Reviewer image"):
-            filecontent = adjust_reviewer_css22(filecontent)
-        if f == "reviewer-bottom.css" and gc("Reviewer image") and gc("Toolbar image"):
-            filecontent = adjust_reviewerbottom_css22(filecontent)                        
+        if v == 22:
+            if f == "deckbrowser.css":
+                filecontent = adjust_deckbrowser_css22(filecontent)
+            if f == "toolbar.css" and gc("Toolbar image"):
+                filecontent = adjust_toolbar_css22(filecontent)
+            if f == "overview.css":
+                filecontent = adjust_overview_css22(filecontent)
+            if f == "toolbar-bottom.css" and gc("Toolbar image"):
+                filecontent = adjust_bottomtoolbar_css22(filecontent)
+            if f == "reviewer.css" and gc("Reviewer image"):
+                filecontent = adjust_reviewer_css22(filecontent)
+            if f == "reviewer-bottom.css" and gc("Reviewer image") and gc("Toolbar image"):
+                filecontent = adjust_reviewerbottom_css22(filecontent)                        
 
-    # for later versions: try the latest
-    # this code will likely change when new Anki versions are released which might require 
-    # updates of this add-on.
-    else: 
-        from .adjust_css_files22 import *
-        if f == "deckbrowser.css":
-            filecontent = adjust_deckbrowser_css22(filecontent)
-        if f == "toolbar.css" and gc("Toolbar image"):
-            filecontent = adjust_toolbar_css22(filecontent)
-        if f == "overview.css":
-            filecontent = adjust_overview_css22(filecontent)
-        if f == "toolbar-bottom.css" and gc("Toolbar image"):
-            filecontent = adjust_bottomtoolbar_css22(filecontent)
-        if f == "reviewer.css" and gc("Reviewer image"):
-            filecontent = adjust_reviewer_css22(filecontent)
-        if f == "reviewer-bottom.css" and gc("Reviewer image"):
-            filecontent = adjust_reviewerbottom_css22(filecontent)                           
+        # for later versions: try the latest
+        # this code will likely change when new Anki versions are released which might require 
+        # updates of this add-on.
+        else: 
+            if f == "deckbrowser.css":
+                filecontent = adjust_deckbrowser_css22(filecontent)
+            if f == "toolbar.css" and gc("Toolbar image"):
+                filecontent = adjust_toolbar_css22(filecontent)
+            if f == "overview.css":
+                filecontent = adjust_overview_css22(filecontent)
+            if f == "toolbar-bottom.css" and gc("Toolbar image"):
+                filecontent = adjust_bottomtoolbar_css22(filecontent)
+            if f == "reviewer.css" and gc("Reviewer image"):
+                filecontent = adjust_reviewer_css22(filecontent)
+            if f == "reviewer-bottom.css": #and gc("Reviewer image"):
+                filecontent = adjust_reviewerbottom_css22(filecontent)                           
 
-    with open(os.path.join(web_absolute, f), "w") as FO:
-        FO.write(filecontent)
+        with open(os.path.join(web_absolute, f), "w") as FO:
+            FO.write(filecontent)
+update_css()
+
+#reset background when refreshing page (for use with "random" setting)
+def reset_background(new_state, old_state):
+    if new_state == "deckBrowser":
+        update_css()
+gui_hooks.state_did_change.append(reset_background)
+
+#reset background when changing config
+def apply_config_changes(config):
+    update_css()
+    mw.moveToState("deckBrowser") 
+    #mw.toolbar.draw()
+mw.addonManager.setConfigUpdatedAction(__name__, apply_config_changes)
 
 
 css_files_to_replace = [os.path.basename(f) for f in os.listdir(web_absolute) if f.endswith(".css")]

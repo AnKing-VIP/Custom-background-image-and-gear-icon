@@ -89,3 +89,6 @@ button {
 .nightMode #outer {
   border-top-color: #29292B;
 }
+body::before {
+background-image:none!important;
+}

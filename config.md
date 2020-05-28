@@ -37,6 +37,6 @@ _The following are css values and can be styled with appropriate css values for 
 * **background-attachment:** _(default "fixed")_ scroll or fixed
 * **background-color:** _(default "")_ set to "" to have no background color
 * **background-position:** _(default "center")_ left top, right bottom, 25% 50%, 100px 200px, etc
-* **background-repeat:** _(default "no-repeat")_ repeat, repeat-x, repeat-y, no-repeat, etc
+* **background scale:** _(default "1")_ set the scale of the image. 1 is the original image size. 2 is 200% original image size. You can also use 2,1 to scale x,y separately
 * **background-size:** _(default "contain", but I would recommend "cover" if you set "Toolbar image" to true)_ contain, cover, 50%, 100px, etc 
 

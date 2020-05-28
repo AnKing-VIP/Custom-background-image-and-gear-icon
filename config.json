@@ -9,7 +9,9 @@
     "background-color bottom": "",
     "background-color main": "",
     "background-color top": "",
+    "background opacity main": "1",
+    "background opacity review": "1",
     "background-position": "center",
-    "background-repeat": "no-repeat",
+    "background scale": "1",
     "background-size": "cover"
 } 
