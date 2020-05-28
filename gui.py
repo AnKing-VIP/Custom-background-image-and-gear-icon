@@ -25,7 +25,7 @@ class Manager:
     def setupMenu(self):
         print('in setupMenu')
         a = QAction("Custom Background Image and Gear Icon", mw)
-        a.triggered.connect(lambda _, s=self: s.show())
+        a.triggered.connect(self.show)
         mw.form.menuTools.addAction(a)
 
     def show(self):
