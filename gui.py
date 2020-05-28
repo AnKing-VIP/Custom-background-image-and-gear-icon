@@ -19,14 +19,17 @@ class Manager:
 
     def __init__(self):
         #self.conf = conf
+        print('in init')
         self.setupMenu()
 
     def setupMenu(self):
+        print('in setupMenu')
         a = QAction("Custom Background Image and Gear Icon", mw)
-        a.triggered.connect(self.show)
+        a.triggered.connect(lambda _, s=self: s.show())
         mw.form.menuTools.addAction(a)
 
     def show(self):
+        print('in show')
         if not self.shown:
             self.shown = True
             s = SettingsDialog(self.reset)
@@ -44,15 +47,12 @@ class SettingsDialog(QDialog):
         QDialog.__init__(self, mw, Qt.Window)
         mw.setupDialogGC(self)
         #self.conf = conf
-        self.mw = aqt.mw
+        self.mw = mw
         self.cleanup = callback
         #TODO I don't get what this is or how it's used?
         self.setupDialog()
         self.loadConfigData()
         self.setupConnections()
-        
-        self.exec_()
-
 
     def setupDialog(self):
         #window title for entire thing
@@ -72,7 +72,7 @@ class SettingsDialog(QDialog):
         # LineEdits -------------
         a = f.lineEdit_background
         t = a.text()
-        a.textChanged.connect(_updateLineEdit(t,"Image name for background"))  
+        a.textChanged.connect(lambda t=a.text(): self._updateLineEdit(t, "Image name for background"))  
         
 
     def loadConfigData(self):
