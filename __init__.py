@@ -17,6 +17,7 @@ from aqt.qt import *
 from aqt.addons import *
 from aqt.utils import openFolder 
 from .adjust_css_files22 import *
+from . import icons_rc
 
 
 
@@ -24,7 +25,7 @@ from .adjust_css_files22 import *
 from .config import addon_path, addonfoldername, gc, getUserOption
 
 from .gui import Manager
-Manager()
+a = Manager()
 
 css_folder_for_anki_version = {
     "22": "22",
@@ -161,3 +162,5 @@ action.setText("Background/gear image folder")
 action.setShortcut(QKeySequence(shortcut))
 menu.addAction(action) 
 action.triggered.connect(lambda: openFolder(imgfolder))
+
+

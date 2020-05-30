@@ -7,30 +7,51 @@
 import os
 from aqt.qt import *
 from aqt import mw
-from aqt.utils import getFile
+from aqt.utils import getFile, openFolder
 
-from .settings import *
-from .config import getUserOption, writeConfig
+import webbrowser
+
+from .settings import Ui_Dialog
+from .config import getUserOption, writeConfig, addon_path, getDefaultConfig
 conf = getUserOption()
 
+imgfolder = os.path.join(addon_path, "user_files") 
+RE_BG_IMG_EXT = "*.gif *.png *.apng *.jpg *.jpeg *.svg *.ico *.bmp"
+
+
+def getMenu(parent, menuName):
+    menu = None
+    for a in parent.form.menubar.actions():
+        if menuName == a.text():
+            menu = a.menu()
+            break
+    if not menu:
+        menu = parent.form.menubar.addMenu(menuName)
+    return menu
+
+initiate = True
 
 class Manager:
     shown = False
 
     def __init__(self):
-        #self.conf = conf
         self.setupMenu()
 
     def setupMenu(self):
-        a = QAction("Custom Background Image and Gear Icon", mw)
-        a.triggered.connect(self.show)
-        mw.form.menuTools.addAction(a)
-
+        global initiate
+        if initiate:
+            m = getMenu(mw, "&View")
+            a = QAction("Custom Background and Gear Icon", mw)
+            a.triggered.connect(self.show)
+            m.addAction(a)
+            initiate = False
+        
     def show(self):
         if not self.shown:
             self.shown = True
-            s = SettingsDialog(self.reset)
-            s.show()
+            s = SettingsDialog(mw, self.reset)
+            s.exec_()
+
 
     def reset(self):
         self.shown = False
@@ -40,128 +61,292 @@ class Manager:
 class SettingsDialog(QDialog):
     timer = None
 
-    def __init__(self, callback):
+    def __init__(self, parent, callback):
         QDialog.__init__(self, mw, Qt.Window)
         mw.setupDialogGC(self)
-        #self.conf = conf
-        self.mw = aqt.mw
+        self.mw = mw
+        self.parent = parent
         self.cleanup = callback
-        #TODO I don't get what this is or how it's used?
         self.setupDialog()
         self.loadConfigData()
         self.setupConnections()
-        
-        self.exec_()
 
+
+    def reject(self):
+        self.accept()
+        self.close()
+
+    def accept(self):
+        QDialog.accept(self)
+        self.cleanup()  
+        self.close()
 
     def setupDialog(self):
-        #window title for entire thing
-        self.setWindowTitle("Custom Wallpaper Settings")
-        #setting up tab widget  TODO how to add more tabs?
-        #self.tabWidget = QTabWidget(self)
-        #TODO what does this do? 
-        #self.tabWidget.setFocusPolicy(Qt.StrongFocus)
-        #self.tabWidget.setObjectName("tabWidget")
         self.form = Ui_Dialog()
-        #TODO why do you need to setupUI with the tabwidget?
         self.form.setupUi(self)
 
     def setupConnections(self):
         f = self.form
         
+        # PushButtons -------------
+        f.OkButton.clicked.connect(self.accept)
+        f.RestoreButton.clicked.connect(self.resetConfig)
+
+        f.pushButton_randomize.clicked.connect(self.random)
+        f.pushButton_imageFolder.clicked.connect(lambda: openFolder(imgfolder))
+
+        f.toolButton_website.clicked.connect(lambda _:self.openWeb("anking")) 
+        f.toolButton_youtube.clicked.connect(lambda _:self.openWeb("youtube"))
+        f.toolButton_patreon.clicked.connect(lambda _:self.openWeb("patreon"))
+        f.toolButton_instagram.clicked.connect(lambda _:self.openWeb("instagram"))
+        f.toolButton_facebook.clicked.connect(lambda _:self.openWeb("facebook"))
+
+        # Color Pickers -------------
+        controller = {
+            f.toolButton_color_main : (f.lineEdit_color_main,),
+            f.toolButton_color_top : (f.lineEdit_color_top,),
+            f.toolButton_color_bottom : (f.lineEdit_color_bottom,),
+        }
+        for btn,args in controller.items():
+            btn.clicked.connect(
+                lambda a="a",args=args:self.getColors(a,*args)
+            )
+
+        # File Buttons -----------------------
+        controller = {
+          # Image Buttons -----------------------
+            f.toolButton_background : (f.lineEdit_background,),
+        }
+        for btn,args in controller.items():
+            # 'a' is used to get around an issue
+            # with pything binding
+            btn.clicked.connect(
+                lambda a="a",args=args:self._getFile(a,*args)
+            )
+        # File Buttons -----------------------
+        controller = {
+          # Image Buttons -----------------------
+            f.toolButton_gear : (f.lineEdit_gear,),
+        }
+        for btn,args in controller.items():
+            # 'a' is used to get around an issue
+            # with pything binding
+            btn.clicked.connect(
+                lambda a="a",args=args:self._getGearFile(a,*args)
+            )
+
+        # Checkboxes ----------------
+        controller = {
+            f.checkBox_reviewer: ("Reviewer image",),
+            f.checkBox_toolbar: ("Toolbar image",),
+            f.checkBox_topbottom: ("Toolbar top/bottom",),
+        }
+        for cb,args in controller.items():
+            cb.stateChanged.connect(
+                lambda cb=cb,args=args:self._updateCheckbox(cb, *args)
+            )  
+
+        # Comboboxes ---------------
+        controller = {
+            f.comboBox_attachment: ("background-attachment",),
+            f.comboBox_position: ("background-position",),
+            f.comboBox_size: ("background-size",),
+        }
+        for cb,args in controller.items():
+            t = cb.currentText()
+            cb.currentTextChanged.connect(
+                lambda t=t,args=args:self._updateComboBox(t, *args)
+            )           
+
+        # Sliders --------------             
+        controller = {
+            f.Slider_main : ("background opacity main",),
+            f.Slider_review : ("background opacity review",),
+        }
+        for slider,args in controller.items():
+            s = slider.value()
+            slider.valueChanged.connect(
+                lambda s=s,args=args:self._updateSliderLabel(s, *args)
+            )
+
+        # QDoubleSpinBox ------------
+        f.scaleBox.valueChanged.connect(self._updateSpinBox)
+
         # LineEdits -------------
         a = f.lineEdit_background
         t = a.text()
-        a.textChanged.connect(_updateLineEdit(t,"Image name for background"))  
-        
+        a.textChanged.connect(lambda t=a.text():self._updateLineEdit(t,"Image name for background")) 
+
+        a = f.lineEdit_gear
+        t = a.text()
+        a.textChanged.connect(lambda t=a.text():self._updateLineEdit(t,"Image name for gear")) 
+
+        a = f.lineEdit_color_main
+        t = a.text()
+        a.textChanged.connect(lambda t=a.text():self._updateLineEdit(t,"background-color main")) 
+
+        a = f.lineEdit_color_top
+        t = a.text()
+        a.textChanged.connect(lambda t=a.text():self._updateLineEdit(t,"background-color top")) 
+
+        a = f.lineEdit_color_bottom
+        t = a.text()
+        a.textChanged.connect(lambda t=a.text():self._updateLineEdit(t,"background-color bottom")) 
+
 
     def loadConfigData(self):
         f = self.form
 
-        #LineEdits
+        # Checkboxes -------------
+        c = conf["Reviewer image"]
+        if f.checkBox_reviewer.isChecked() != c:
+            f.checkBox_reviewer.click()
 
-    def _updateLineEdit(self, text, key):
-        #self.conf.set(key, text)
-        conf[key] = text
-        writeConfig(conf)
-        self._refresh()
+        c = conf["Toolbar image"]
+        if f.checkBox_toolbar.isChecked() != c:
+            f.checkBox_toolbar.click()
 
-    def _refresh(self, ms=100):
-        if self.timer:
-            self.timer.stop()
-        self.timer = mw.progress.timer(
-            ms, lambda:mw.reset(True), False)    
+        c = conf["Toolbar top/bottom"]
+        if f.checkBox_topbottom.isChecked() != c:
+            f.checkBox_topbottom.click()
 
+        # Comboboxes -------------
+        c = conf["background-attachment"]
+        f.comboBox_attachment.setCurrentText(c)
 
+        c = conf["background-position"]
+        f.comboBox_position.setCurrentText(c)
 
+        c = conf["background-size"]
+        f.comboBox_size.setCurrentText(c)
 
-def SettingsDialogExecute():
-    SettingsDialog(mw)
+        # Sliders --------------
+        c = float(conf["background opacity main"])
+        f.Slider_main.setValue(c*100)
 
+        c = float(conf["background opacity review"])
+        f.Slider_review.setValue(c*100)
 
-mw.addonManager.setConfigAction(__name__, SettingsDialogExecute)
+        # QDoubleSpinBox ------------------
+        c = float(conf["background scale"])
+        f.scaleBox.setValue(c)
 
+        # LineEdits -------------
+        t = conf["Image name for background"]
+        f.lineEdit_background.setText(t)
 
-''' DANCING BALONEY STUFF
-    #TODO why?
-    def reject(self):
-        self.accept()
+        t = conf["Image name for gear"]
+        f.lineEdit_gear.setText(t)
 
-    def accept(self):
-        self.conf.save()
-        #why do you need to accept with the qdialog?
-        QDialog.accept(self)
-        self.cleanup()
+        t = conf["background-color main"]
+        f.lineEdit_color_main.setText(t)
 
+        t = conf["background-color top"]
+        f.lineEdit_color_top.setText(t)
 
+        t = conf["background-color bottom"]
+        f.lineEdit_color_bottom.setText(t)        
 
-
-    def _updateComboBox(self):
-        self.conf.set("theme",
-            self.form.theme_combobox.currentText())
-        self._refresh(150)
-
-    def _updateSliderLabel(self, num, label, key, format="% 5d%%"):
-        label.setText(format%num)
-        self.conf.set(key, num)
-        self._refresh()
-
-    def _getThemes(self):
-        d = f"{ADDON_PATH}/theme"
-        return [x for x in os.listdir(d) if os.path.isdir(os.path.join(d, x))]
 
     def _getFile(self, pad, lineEditor, ext=RE_BG_IMG_EXT):
         def setWallpaper(path):
-            f = path.split("user_files/")[-1]
+            f = path.split("user_files/background/")[-1]
             lineEditor.setText(f)
 
         f = getFile(mw, "Wallpaper",
             cb=setWallpaper,
             filter=ext,
-            dir=f"{ADDON_PATH}/user_files"
+            dir=f"{addon_path}/user_files/background"
         )
 
-    def _chooseColor(self, pad, lineEditor):
-        def liveColor(qcolor):
-            if qcolor.isValid():
-                self.lastColor=qcolor
-                lineEditor.setText(qcolor.name())
+    def _getGearFile(self, pad, lineEditor, ext=RE_BG_IMG_EXT):
+        def setWallpaper(path):
+            f = path.split("user_files/gear/")[-1]
+            lineEditor.setText(f)
 
-        diag=QDialog(self)
-        form=getcolor.Ui_Dialog()
-        form.setupUi(diag)
-        cor = lineEditor.text()
-        if QColor.isValidColor(cor):
-            form.color.setCurrentColor(QColor(cor))
-        else:
-            form.color.setCurrentColor(self.lastColor)
-        form.color.currentColorChanged.connect(liveColor)
-        diag.show()
+        f = getFile(mw, "Gear icon",
+            cb=setWallpaper,
+            filter=ext,
+            dir=f"{addon_path}/user_files/gear"
+        )
 
     def _updateCheckbox(self, cb, key):
         n = -1 if cb==2 else 1
-        self.conf.set(key, n)
+        v = True if n ==-1 else False
+        conf[key] = v
+        writeConfig(conf)
         self._refresh()
 
+    def _updateComboBox(self, text, key):
+        conf[key] = text
+        writeConfig(conf)
+        self._refresh()
 
-'''
+    def _updateSliderLabel(self, val, key):
+        conf[key] = str(round(val/100,2))
+        writeConfig(conf)
+        self._refresh()
+
+    def _updateSpinBox(self):
+        f = self.form
+        n = round(f.scaleBox.value(),2)
+        conf["background scale"] = str(n)
+        writeConfig(conf)
+        self._refresh()
+
+    def _updateLineEdit(self, text, key):
+        conf[key] = text
+        writeConfig(conf)
+        self._refresh()
+
+    def getColors(self, pad, lineEditor):
+        qcolor = QColorDialog.getColor()
+        if not qcolor.isValid():
+            return
+        color = qcolor.name()
+        lineEditor.setText(color)
+   
+    def openWeb(self, site):
+        if site == "anking":
+            webbrowser.open('https://www.ankingmed.com')
+        elif site == "youtube":        
+            webbrowser.open('https://www.youtube.com/theanking')
+        elif site == "patreon":        
+            webbrowser.open('https://www.patreon.com/ankingmed')
+        elif site == "instagram":        
+            webbrowser.open('https://instagram.com/ankingmed')
+        elif site == "facebook":        
+            webbrowser.open('https://facebook.com/ankingmed')
+        elif site == "video":        
+            webbrowser.open('https://youtu.be/5XAq0KpU3Jc')
+
+    def random(self):
+        f = self.form
+        f.lineEdit_background.setText("random")
+        f.lineEdit_gear.setText("random")
+    
+    def resetConfig(self):
+        global conf
+        conf = getDefaultConfig()
+        writeConfig(conf)
+        self._refresh()
+        self.close()
+        SettingsDialogExecute()
+
+    def _refresh(self, ms=100):
+        if self.timer:
+            self.timer.stop()
+        self.timer = mw.progress.timer(
+            ms, lambda:mw.reset(True), False)  
+
+
+
+
+def SettingsDialogExecute():
+    m= Manager()
+    m.show()
+
+
+mw.addonManager.setConfigAction(__name__, SettingsDialogExecute)
+
+

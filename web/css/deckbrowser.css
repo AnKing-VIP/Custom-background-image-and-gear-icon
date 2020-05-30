@@ -120,13 +120,13 @@ body {
 }
 body::before {
 
-    background-image: url("/_addons/zCustomback-gui/user_files/background/MoonMountains.png"); 
+    background-image: url("/_addons/zCustomback-gui/user_files/background/Christ&Surgeon.png"); 
     background-size: cover;  
     background-attachment: fixed; 
-    background-repeat: "no-repeat";
+    background-repeat: no-repeat;
     background-position: center;
     background-color: !important; 
-    opacity: .2;
+    opacity: 0.2;
     content: "";
     top: 0;
     left: 0;

@@ -6,27 +6,27 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>420</width>
-    <height>429</height>
+    <width>473</width>
+    <height>582</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Custom Background Settings</string>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>20</y>
+     <y>90</y>
      <width>181</width>
      <height>16</height>
     </rect>
    </property>
    <property name="toolTip">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Full filename of image in the user_files folder (including extension)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Name of the background image file.&lt;/p&gt;&lt;p&gt;&amp;quot;Random&amp;quot; will shuffle through defaults&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="toolTipDuration">
-    <number>2000</number>
+    <number>10000</number>
    </property>
    <property name="text">
     <string>Image name for background:</string>
@@ -36,21 +36,27 @@
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>50</y>
+     <y>120</y>
      <width>171</width>
      <height>16</height>
     </rect>
    </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Name of the file to replace the gear icon. &lt;/p&gt;&lt;p&gt;Anki default is gears.svg&lt;/p&gt;&lt;p&gt;&amp;quot;Random&amp;quot; will shuffle through defaults&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="toolTipDuration">
+    <number>10000</number>
+   </property>
    <property name="text">
-    <string>Image name for gear:</string>
+    <string>Image name for gear icon:</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit_background">
    <property name="geometry">
     <rect>
-     <x>250</x>
-     <y>20</y>
-     <width>113</width>
+     <x>240</x>
+     <y>90</y>
+     <width>161</width>
      <height>21</height>
     </rect>
    </property>
@@ -58,33 +64,20 @@
   <widget class="QLineEdit" name="lineEdit_gear">
    <property name="geometry">
     <rect>
-     <x>250</x>
-     <y>50</y>
-     <width>113</width>
+     <x>240</x>
+     <y>120</y>
+     <width>161</width>
      <height>21</height>
     </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_3">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>80</y>
-     <width>171</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Keyboard shortcut:</string>
    </property>
   </widget>
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>10</y>
-     <width>381</width>
-     <height>111</height>
+     <y>60</y>
+     <width>431</width>
+     <height>121</height>
     </rect>
    </property>
    <property name="whatsThis">
@@ -93,17 +86,56 @@
    <property name="title">
     <string/>
    </property>
-   <widget class="QLineEdit" name="lineEdit_shortcut">
+   <widget class="QToolButton" name="toolButton_background">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>70</y>
-      <width>113</width>
-      <height>21</height>
+      <x>390</x>
+      <y>30</y>
+      <width>26</width>
+      <height>22</height>
      </rect>
     </property>
-    <property name="clearButtonEnabled">
-     <bool>false</bool>
+    <property name="text">
+     <string>...</string>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="toolButton_gear">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>60</y>
+      <width>26</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>...</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_randomize">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>90</y>
+      <width>131</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Random Images</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_imageFolder">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>90</y>
+      <width>161</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Open Image Folders</string>
     </property>
    </widget>
   </widget>
@@ -111,9 +143,9 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>140</y>
-     <width>181</width>
-     <height>81</height>
+     <y>190</y>
+     <width>191</width>
+     <height>111</height>
     </rect>
    </property>
    <property name="title">
@@ -122,17 +154,20 @@
    <widget class="QCheckBox" name="checkBox_reviewer">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>10</y>
+      <x>20</x>
+      <y>30</y>
       <width>131</width>
       <height>20</height>
      </rect>
     </property>
     <property name="toolTip">
-     <string/>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Show the background image in the reviewer screen&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="toolTipDuration">
+     <number>10000</number>
     </property>
     <property name="text">
-     <string>Reviewer image</string>
+     <string>Show in reviewer</string>
     </property>
     <property name="checked">
      <bool>true</bool>
@@ -141,14 +176,20 @@
    <widget class="QCheckBox" name="checkBox_toolbar">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>30</y>
+      <x>20</x>
+      <y>50</y>
       <width>131</width>
       <height>20</height>
      </rect>
     </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Show the background image in the top and bottom toolbars in addition to the main screen&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="toolTipDuration">
+     <number>10000</number>
+    </property>
     <property name="text">
-     <string>Toolbar image</string>
+     <string>Show in toolbar</string>
     </property>
     <property name="checked">
      <bool>true</bool>
@@ -157,11 +198,17 @@
    <widget class="QCheckBox" name="checkBox_topbottom">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>50</y>
+      <x>20</x>
+      <y>70</y>
       <width>151</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Set the background position of the toolbars to top and bottom (if the main background position is set to center, this will look cleaner for most images)&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="toolTipDuration">
+     <number>10000</number>
     </property>
     <property name="text">
      <string>Toolbar top/bottom</string>
@@ -174,9 +221,9 @@
   <widget class="QSlider" name="Slider_main">
    <property name="geometry">
     <rect>
-     <x>270</x>
-     <y>160</y>
-     <width>111</width>
+     <x>300</x>
+     <y>230</y>
+     <width>131</width>
      <height>22</height>
     </rect>
    </property>
@@ -188,9 +235,6 @@
    </property>
    <property name="whatsThis">
     <string/>
-   </property>
-   <property name="minimum">
-    <number>1</number>
    </property>
    <property name="maximum">
     <number>100</number>
@@ -220,8 +264,8 @@
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>160</y>
+     <x>240</x>
+     <y>230</y>
      <width>41</width>
      <height>16</height>
     </rect>
@@ -230,7 +274,7 @@
     <string/>
    </property>
    <property name="toolTipDuration">
-    <number>2000</number>
+    <number>-1</number>
    </property>
    <property name="statusTip">
     <string/>
@@ -245,8 +289,8 @@
   <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>190</y>
+     <x>240</x>
+     <y>270</y>
      <width>51</width>
      <height>16</height>
     </rect>
@@ -258,29 +302,41 @@
   <widget class="QSlider" name="Slider_review">
    <property name="geometry">
     <rect>
-     <x>270</x>
-     <y>190</y>
-     <width>111</width>
+     <x>300</x>
+     <y>270</y>
+     <width>131</width>
      <height>22</height>
     </rect>
    </property>
    <property name="maximum">
     <number>100</number>
    </property>
+   <property name="pageStep">
+    <number>10</number>
+   </property>
    <property name="value">
+    <number>100</number>
+   </property>
+   <property name="sliderPosition">
     <number>100</number>
    </property>
    <property name="orientation">
     <enum>Qt::Horizontal</enum>
    </property>
+   <property name="invertedAppearance">
+    <bool>false</bool>
+   </property>
+   <property name="tickPosition">
+    <enum>QSlider::NoTicks</enum>
+   </property>
   </widget>
   <widget class="QGroupBox" name="groupBox_3">
    <property name="geometry">
     <rect>
-     <x>210</x>
-     <y>120</y>
-     <width>191</width>
-     <height>101</height>
+     <x>220</x>
+     <y>190</y>
+     <width>231</width>
+     <height>111</height>
     </rect>
    </property>
    <property name="title">
@@ -291,7 +347,7 @@
    <property name="geometry">
     <rect>
      <x>120</x>
-     <y>240</y>
+     <y>340</y>
      <width>104</width>
      <height>26</height>
     </rect>
@@ -311,27 +367,27 @@
    <property name="geometry">
     <rect>
      <x>120</x>
-     <y>270</y>
+     <y>370</y>
      <width>104</width>
      <height>26</height>
     </rect>
    </property>
    <property name="currentText">
-    <string>top left</string>
+    <string>left top</string>
    </property>
    <item>
     <property name="text">
-     <string>top left</string>
+     <string>left top</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>top center</string>
+     <string>center top</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>top right</string>
+     <string>right top</string>
     </property>
    </item>
    <item>
@@ -351,26 +407,26 @@
    </item>
    <item>
     <property name="text">
-     <string>bottom left</string>
+     <string>left bottom</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>bottom center</string>
+     <string>center bottom</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>bottom right</string>
+     <string>right bottom</string>
     </property>
    </item>
   </widget>
   <widget class="QLineEdit" name="lineEdit_color_main">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>360</y>
-     <width>81</width>
+     <x>70</x>
+     <y>470</y>
+     <width>91</width>
      <height>21</height>
     </rect>
    </property>
@@ -378,9 +434,9 @@
   <widget class="QLineEdit" name="lineEdit_color_top">
    <property name="geometry">
     <rect>
-     <x>302</x>
-     <y>360</y>
-     <width>81</width>
+     <x>310</x>
+     <y>470</y>
+     <width>91</width>
      <height>21</height>
     </rect>
    </property>
@@ -388,38 +444,18 @@
   <widget class="QLineEdit" name="lineEdit_color_bottom">
    <property name="geometry">
     <rect>
-     <x>302</x>
-     <y>390</y>
-     <width>81</width>
+     <x>310</x>
+     <y>500</y>
+     <width>91</width>
      <height>21</height>
     </rect>
    </property>
-  </widget>
-  <widget class="QComboBox" name="comboBox_size">
-   <property name="geometry">
-    <rect>
-     <x>120</x>
-     <y>300</y>
-     <width>104</width>
-     <height>26</height>
-    </rect>
-   </property>
-   <item>
-    <property name="text">
-     <string>cover</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>contain</string>
-    </property>
-   </item>
   </widget>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>240</y>
+     <y>340</y>
      <width>81</width>
      <height>16</height>
     </rect>
@@ -432,7 +468,7 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>270</y>
+     <y>370</y>
      <width>81</width>
      <height>16</height>
     </rect>
@@ -441,24 +477,11 @@
     <string>Position:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_8">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>300</y>
-     <width>81</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Size:</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_9">
    <property name="geometry">
     <rect>
      <x>240</x>
-     <y>290</y>
+     <y>370</y>
      <width>81</width>
      <height>16</height>
     </rect>
@@ -470,9 +493,9 @@
   <widget class="QDoubleSpinBox" name="scaleBox">
    <property name="geometry">
     <rect>
-     <x>310</x>
-     <y>290</y>
-     <width>68</width>
+     <x>327</x>
+     <y>369</y>
+     <width>91</width>
      <height>24</height>
     </rect>
    </property>
@@ -482,63 +505,66 @@
    <property name="minimum">
     <double>0.100000000000000</double>
    </property>
+   <property name="singleStep">
+    <double>0.100000000000000</double>
+   </property>
    <property name="value">
     <double>1.000000000000000</double>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="comboBox_repeat">
-   <property name="geometry">
-    <rect>
-     <x>290</x>
-     <y>250</y>
-     <width>104</width>
-     <height>26</height>
-    </rect>
-   </property>
-   <item>
-    <property name="text">
-     <string>no-repeat</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>repeat</string>
-    </property>
-   </item>
-  </widget>
-  <widget class="QLabel" name="label_10">
-   <property name="geometry">
-    <rect>
-     <x>240</x>
-     <y>250</y>
-     <width>81</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Repeat:</string>
    </property>
   </widget>
   <widget class="QGroupBox" name="groupBox_4">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>229</y>
-     <width>381</width>
-     <height>111</height>
+     <y>299</y>
+     <width>431</width>
+     <height>121</height>
     </rect>
    </property>
    <property name="title">
     <string/>
    </property>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>40</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Size:</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox_size">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>40</y>
+      <width>104</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>cover</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>contain</string>
+     </property>
+    </item>
+   </widget>
   </widget>
   <widget class="QGroupBox" name="groupBox_5">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>340</y>
-     <width>381</width>
-     <height>80</height>
+     <y>440</y>
+     <width>431</width>
+     <height>91</height>
     </rect>
    </property>
    <property name="title">
@@ -548,7 +574,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>20</y>
+      <y>30</y>
       <width>81</width>
       <height>16</height>
      </rect>
@@ -560,8 +586,8 @@
    <widget class="QLabel" name="label_12">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>20</y>
+      <x>188</x>
+      <y>30</y>
       <width>101</width>
       <height>20</height>
      </rect>
@@ -573,8 +599,8 @@
    <widget class="QLabel" name="label_13">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>50</y>
+      <x>188</x>
+      <y>60</y>
       <width>101</width>
       <height>20</height>
      </rect>
@@ -583,6 +609,199 @@
      <string>Bottom toolbar:</string>
     </property>
    </widget>
+   <widget class="QToolButton" name="toolButton_color_main">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>30</y>
+      <width>26</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>...</string>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="toolButton_color_top">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>30</y>
+      <width>26</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>...</string>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="toolButton_color_bottom">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>60</y>
+      <width>26</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>...</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="OkButton">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>540</y>
+     <width>81</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>OK</string>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="toolButton_website">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>20</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>...</string>
+   </property>
+   <property name="icon">
+    <iconset resource="AnKing/icons.qrc">
+     <normaloff>:/CustomBackground/AnKingSmall.png</normaloff>:/CustomBackground/AnKingSmall.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>31</width>
+     <height>31</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="toolButton_youtube">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>20</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>...</string>
+   </property>
+   <property name="icon">
+    <iconset resource="AnKing/icons.qrc">
+     <normaloff>:/CustomBackground/YouTube.png</normaloff>:/CustomBackground/YouTube.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>31</width>
+     <height>31</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="toolButton_facebook">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>20</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>...</string>
+   </property>
+   <property name="icon">
+    <iconset resource="AnKing/icons.qrc">
+     <normaloff>:/CustomBackground/Facebook.png</normaloff>:/CustomBackground/Facebook.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>31</width>
+     <height>31</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="toolButton_instagram">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>20</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>...</string>
+   </property>
+   <property name="icon">
+    <iconset resource="AnKing/icons.qrc">
+     <normaloff>:/CustomBackground/Instagram.png</normaloff>:/CustomBackground/Instagram.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>31</width>
+     <height>31</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="toolButton_patreon">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>20</y>
+     <width>171</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>...</string>
+   </property>
+   <property name="icon">
+    <iconset resource="AnKing/icons.qrc">
+     <normaloff>:/CustomBackground/Patreon.png</normaloff>:/CustomBackground/Patreon.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>200</width>
+     <height>31</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_videoTutorial">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>540</y>
+     <width>141</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Video Tutorial</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="RestoreButton">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>540</y>
+     <width>131</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Restore Default</string>
+   </property>
   </widget>
   <zorder>groupBox_5</zorder>
   <zorder>groupBox_4</zorder>
@@ -592,7 +811,6 @@
   <zorder>label_2</zorder>
   <zorder>lineEdit_background</zorder>
   <zorder>lineEdit_gear</zorder>
-  <zorder>label_3</zorder>
   <zorder>groupBox_2</zorder>
   <zorder>Slider_main</zorder>
   <zorder>label_5</zorder>
@@ -603,15 +821,21 @@
   <zorder>lineEdit_color_main</zorder>
   <zorder>lineEdit_color_top</zorder>
   <zorder>lineEdit_color_bottom</zorder>
-  <zorder>comboBox_size</zorder>
   <zorder>label_4</zorder>
   <zorder>label_7</zorder>
-  <zorder>label_8</zorder>
   <zorder>label_9</zorder>
   <zorder>scaleBox</zorder>
-  <zorder>comboBox_repeat</zorder>
-  <zorder>label_10</zorder>
+  <zorder>OkButton</zorder>
+  <zorder>toolButton_website</zorder>
+  <zorder>toolButton_youtube</zorder>
+  <zorder>toolButton_facebook</zorder>
+  <zorder>toolButton_instagram</zorder>
+  <zorder>toolButton_patreon</zorder>
+  <zorder>pushButton_videoTutorial</zorder>
+  <zorder>RestoreButton</zorder>
  </widget>
- <resources/>
+ <resources>
+  <include location="AnKing/icons.qrc"/>
+ </resources>
  <connections/>
 </ui>

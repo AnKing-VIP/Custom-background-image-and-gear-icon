@@ -37,3 +37,8 @@ def getUserOption(key=None, default=None, refresh=False):
 
 def writeConfig(configToWrite=userOption):
     mw.addonManager.writeConfig(__name__, configToWrite)
+
+
+def getDefaultConfig():
+    addon = __name__.split(".")[0]
+    return mw.addonManager.addonConfigDefaults(addon)
