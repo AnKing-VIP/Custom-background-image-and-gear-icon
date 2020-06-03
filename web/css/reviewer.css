@@ -89,9 +89,9 @@ img {
 }
 body::before {
 
-    background-image: url("/_addons/zCustomback-gui/user_files/background/Christ&Surgeon.png"); 
+    background-image: url("/_addons/zCustomback-gui/user_files/background/BeachAerial.png"); 
     background-size: cover;  
-    background-attachment: fixed; 
+    background-attachment: fixed!important; 
     background-repeat: no-repeat;
     background-position: center;
     background-color: !important; 
@@ -104,6 +104,6 @@ body::before {
     position: fixed;
     z-index: -99;
     will-change: transform;
-    transform: scale(1);
+    transform: scale(1.0);
     
 }

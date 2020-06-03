@@ -24,8 +24,9 @@ from . import icons_rc
 
 from .config import addon_path, addonfoldername, gc, getUserOption
 
-from .gui import Manager
-a = Manager()
+#from .gui import Manager
+#a = Manager()
+from . import gui_updatemanager
 
 css_folder_for_anki_version = {
     "22": "22",
@@ -140,6 +141,8 @@ def replace_gears(deck_browser, content):
 gui_hooks.deck_browser_will_render_content.append(replace_gears)
 
 
+#No longer needed
+'''
 menu = QMenu(('Custom Background & Gear Icon'), mw)
 mw.form.menuTools.addMenu(menu)
 
@@ -162,5 +165,4 @@ action.setText("Background/gear image folder")
 action.setShortcut(QKeySequence(shortcut))
 menu.addAction(action) 
 action.triggered.connect(lambda: openFolder(imgfolder))
-
-
+'''

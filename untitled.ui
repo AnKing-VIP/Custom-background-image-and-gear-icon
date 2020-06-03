@@ -6,833 +6,583 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>473</width>
-    <height>582</height>
+    <width>511</width>
+    <height>527</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Custom Background Settings</string>
   </property>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>90</y>
-     <width>181</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="toolTip">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Name of the background image file.&lt;/p&gt;&lt;p&gt;&amp;quot;Random&amp;quot; will shuffle through defaults&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-   </property>
-   <property name="toolTipDuration">
-    <number>10000</number>
-   </property>
-   <property name="text">
-    <string>Image name for background:</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>120</y>
-     <width>171</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="toolTip">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Name of the file to replace the gear icon. &lt;/p&gt;&lt;p&gt;Anki default is gears.svg&lt;/p&gt;&lt;p&gt;&amp;quot;Random&amp;quot; will shuffle through defaults&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-   </property>
-   <property name="toolTipDuration">
-    <number>10000</number>
-   </property>
-   <property name="text">
-    <string>Image name for gear icon:</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit_background">
-   <property name="geometry">
-    <rect>
-     <x>240</x>
-     <y>90</y>
-     <width>161</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit_gear">
-   <property name="geometry">
-    <rect>
-     <x>240</x>
-     <y>120</y>
-     <width>161</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QGroupBox" name="groupBox">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>60</y>
-     <width>431</width>
-     <height>121</height>
-    </rect>
-   </property>
-   <property name="whatsThis">
-    <string/>
-   </property>
-   <property name="title">
-    <string/>
-   </property>
-   <widget class="QToolButton" name="toolButton_background">
-    <property name="geometry">
-     <rect>
-      <x>390</x>
-      <y>30</y>
-      <width>26</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>...</string>
-    </property>
-   </widget>
-   <widget class="QToolButton" name="toolButton_gear">
-    <property name="geometry">
-     <rect>
-      <x>390</x>
-      <y>60</y>
-      <width>26</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>...</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_randomize">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>90</y>
-      <width>131</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Random Images</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_imageFolder">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>90</y>
-      <width>161</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Open Image Folders</string>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QGroupBox" name="groupBox_2">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>190</y>
-     <width>191</width>
-     <height>111</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string/>
-   </property>
-   <widget class="QCheckBox" name="checkBox_reviewer">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>30</y>
-      <width>131</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Show the background image in the reviewer screen&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-    <property name="toolTipDuration">
-     <number>10000</number>
-    </property>
-    <property name="text">
-     <string>Show in reviewer</string>
-    </property>
-    <property name="checked">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkBox_toolbar">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>50</y>
-      <width>131</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Show the background image in the top and bottom toolbars in addition to the main screen&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-    <property name="toolTipDuration">
-     <number>10000</number>
-    </property>
-    <property name="text">
-     <string>Show in toolbar</string>
-    </property>
-    <property name="checked">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkBox_topbottom">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>70</y>
-      <width>151</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Set the background position of the toolbars to top and bottom (if the main background position is set to center, this will look cleaner for most images)&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-    <property name="toolTipDuration">
-     <number>10000</number>
-    </property>
-    <property name="text">
-     <string>Toolbar top/bottom</string>
-    </property>
-    <property name="checked">
-     <bool>true</bool>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QSlider" name="Slider_main">
-   <property name="geometry">
-    <rect>
-     <x>300</x>
-     <y>230</y>
-     <width>131</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="toolTip">
-    <string/>
-   </property>
-   <property name="toolTipDuration">
-    <number>-1</number>
-   </property>
-   <property name="whatsThis">
-    <string/>
-   </property>
-   <property name="maximum">
-    <number>100</number>
-   </property>
-   <property name="pageStep">
-    <number>10</number>
-   </property>
-   <property name="value">
-    <number>100</number>
-   </property>
-   <property name="sliderPosition">
-    <number>100</number>
-   </property>
-   <property name="tracking">
-    <bool>true</bool>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Horizontal</enum>
-   </property>
-   <property name="tickPosition">
-    <enum>QSlider::NoTicks</enum>
-   </property>
-   <property name="tickInterval">
-    <number>5</number>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_5">
-   <property name="geometry">
-    <rect>
-     <x>240</x>
-     <y>230</y>
-     <width>41</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="toolTip">
-    <string/>
-   </property>
-   <property name="toolTipDuration">
-    <number>-1</number>
-   </property>
-   <property name="statusTip">
-    <string/>
-   </property>
-   <property name="whatsThis">
-    <string/>
-   </property>
-   <property name="text">
-    <string>Main</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_6">
-   <property name="geometry">
-    <rect>
-     <x>240</x>
-     <y>270</y>
-     <width>51</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Review</string>
-   </property>
-  </widget>
-  <widget class="QSlider" name="Slider_review">
-   <property name="geometry">
-    <rect>
-     <x>300</x>
-     <y>270</y>
-     <width>131</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="maximum">
-    <number>100</number>
-   </property>
-   <property name="pageStep">
-    <number>10</number>
-   </property>
-   <property name="value">
-    <number>100</number>
-   </property>
-   <property name="sliderPosition">
-    <number>100</number>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Horizontal</enum>
-   </property>
-   <property name="invertedAppearance">
-    <bool>false</bool>
-   </property>
-   <property name="tickPosition">
-    <enum>QSlider::NoTicks</enum>
-   </property>
-  </widget>
-  <widget class="QGroupBox" name="groupBox_3">
-   <property name="geometry">
-    <rect>
-     <x>220</x>
-     <y>190</y>
-     <width>231</width>
-     <height>111</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Background opacity</string>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="comboBox_attachment">
-   <property name="geometry">
-    <rect>
-     <x>120</x>
-     <y>340</y>
-     <width>104</width>
-     <height>26</height>
-    </rect>
-   </property>
-   <item>
-    <property name="text">
-     <string>fixed</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>scroll</string>
-    </property>
-   </item>
-  </widget>
-  <widget class="QComboBox" name="comboBox_position">
-   <property name="geometry">
-    <rect>
-     <x>120</x>
-     <y>370</y>
-     <width>104</width>
-     <height>26</height>
-    </rect>
-   </property>
-   <property name="currentText">
-    <string>left top</string>
-   </property>
-   <item>
-    <property name="text">
-     <string>left top</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>center top</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>right top</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>right</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>left</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>center</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>left bottom</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>center bottom</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>right bottom</string>
-    </property>
-   </item>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit_color_main">
-   <property name="geometry">
-    <rect>
-     <x>70</x>
-     <y>470</y>
-     <width>91</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit_color_top">
-   <property name="geometry">
-    <rect>
-     <x>310</x>
-     <y>470</y>
-     <width>91</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit_color_bottom">
-   <property name="geometry">
-    <rect>
-     <x>310</x>
-     <y>500</y>
-     <width>91</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_4">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>340</y>
-     <width>81</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Attachment:</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_7">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>370</y>
-     <width>81</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Position:</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_9">
-   <property name="geometry">
-    <rect>
-     <x>240</x>
-     <y>370</y>
-     <width>81</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Scale:</string>
-   </property>
-  </widget>
-  <widget class="QDoubleSpinBox" name="scaleBox">
-   <property name="geometry">
-    <rect>
-     <x>327</x>
-     <y>369</y>
-     <width>91</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <property name="decimals">
-    <number>1</number>
-   </property>
-   <property name="minimum">
-    <double>0.100000000000000</double>
-   </property>
-   <property name="singleStep">
-    <double>0.100000000000000</double>
-   </property>
-   <property name="value">
-    <double>1.000000000000000</double>
-   </property>
-  </widget>
-  <widget class="QGroupBox" name="groupBox_4">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>299</y>
-     <width>431</width>
-     <height>121</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string/>
-   </property>
-   <widget class="QLabel" name="label_8">
-    <property name="geometry">
-     <rect>
-      <x>220</x>
-      <y>40</y>
-      <width>81</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Size:</string>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="comboBox_size">
-    <property name="geometry">
-     <rect>
-      <x>300</x>
-      <y>40</y>
-      <width>104</width>
-      <height>26</height>
-     </rect>
-    </property>
-    <item>
+  <layout class="QGridLayout" name="gridLayout_6">
+   <item row="5" column="8" colspan="3">
+    <widget class="QPushButton" name="RestoreButton">
      <property name="text">
-      <string>cover</string>
+      <string>Restore Default</string>
      </property>
-    </item>
-    <item>
+    </widget>
+   </item>
+   <item row="0" column="6">
+    <widget class="QToolButton" name="toolButton_youtube">
+     <property name="maximumSize">
+      <size>
+       <width>31</width>
+       <height>31</height>
+      </size>
+     </property>
      <property name="text">
-      <string>contain</string>
+      <string>...</string>
      </property>
-    </item>
-   </widget>
-  </widget>
-  <widget class="QGroupBox" name="groupBox_5">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>440</y>
-     <width>431</width>
-     <height>91</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Background color</string>
-   </property>
-   <widget class="QLabel" name="label_11">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>30</y>
-      <width>81</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Main:</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_12">
-    <property name="geometry">
-     <rect>
-      <x>188</x>
-      <y>30</y>
-      <width>101</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Top toolbar:</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_13">
-    <property name="geometry">
-     <rect>
-      <x>188</x>
-      <y>60</y>
-      <width>101</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Bottom toolbar:</string>
-    </property>
-   </widget>
-   <widget class="QToolButton" name="toolButton_color_main">
-    <property name="geometry">
-     <rect>
-      <x>150</x>
-      <y>30</y>
-      <width>26</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>...</string>
-    </property>
-   </widget>
-   <widget class="QToolButton" name="toolButton_color_top">
-    <property name="geometry">
-     <rect>
-      <x>390</x>
-      <y>30</y>
-      <width>26</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>...</string>
-    </property>
-   </widget>
-   <widget class="QToolButton" name="toolButton_color_bottom">
-    <property name="geometry">
-     <rect>
-      <x>390</x>
-      <y>60</y>
-      <width>26</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>...</string>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QPushButton" name="OkButton">
-   <property name="geometry">
-    <rect>
-     <x>370</x>
-     <y>540</y>
-     <width>81</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>OK</string>
-   </property>
-  </widget>
-  <widget class="QToolButton" name="toolButton_website">
-   <property name="geometry">
-    <rect>
-     <x>70</x>
-     <y>20</y>
-     <width>31</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>...</string>
-   </property>
-   <property name="icon">
-    <iconset resource="AnKing/icons.qrc">
-     <normaloff>:/CustomBackground/AnKingSmall.png</normaloff>:/CustomBackground/AnKingSmall.png</iconset>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>31</width>
-     <height>31</height>
-    </size>
-   </property>
-  </widget>
-  <widget class="QToolButton" name="toolButton_youtube">
-   <property name="geometry">
-    <rect>
-     <x>110</x>
-     <y>20</y>
-     <width>31</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>...</string>
-   </property>
-   <property name="icon">
-    <iconset resource="AnKing/icons.qrc">
-     <normaloff>:/CustomBackground/YouTube.png</normaloff>:/CustomBackground/YouTube.png</iconset>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>31</width>
-     <height>31</height>
-    </size>
-   </property>
-  </widget>
-  <widget class="QToolButton" name="toolButton_facebook">
-   <property name="geometry">
-    <rect>
-     <x>370</x>
-     <y>20</y>
-     <width>31</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>...</string>
-   </property>
-   <property name="icon">
-    <iconset resource="AnKing/icons.qrc">
-     <normaloff>:/CustomBackground/Facebook.png</normaloff>:/CustomBackground/Facebook.png</iconset>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>31</width>
-     <height>31</height>
-    </size>
-   </property>
-  </widget>
-  <widget class="QToolButton" name="toolButton_instagram">
-   <property name="geometry">
-    <rect>
-     <x>330</x>
-     <y>20</y>
-     <width>31</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>...</string>
-   </property>
-   <property name="icon">
-    <iconset resource="AnKing/icons.qrc">
-     <normaloff>:/CustomBackground/Instagram.png</normaloff>:/CustomBackground/Instagram.png</iconset>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>31</width>
-     <height>31</height>
-    </size>
-   </property>
-  </widget>
-  <widget class="QToolButton" name="toolButton_patreon">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>20</y>
-     <width>171</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>...</string>
-   </property>
-   <property name="icon">
-    <iconset resource="AnKing/icons.qrc">
-     <normaloff>:/CustomBackground/Patreon.png</normaloff>:/CustomBackground/Patreon.png</iconset>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>200</width>
-     <height>31</height>
-    </size>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_videoTutorial">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>540</y>
-     <width>141</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Video Tutorial</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="RestoreButton">
-   <property name="geometry">
-    <rect>
-     <x>230</x>
-     <y>540</y>
-     <width>131</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Restore Default</string>
-   </property>
-  </widget>
+     <property name="icon">
+      <iconset resource="AnKing/icons.qrc">
+       <normaloff>:/CustomBackground/YouTube.png</normaloff>:/CustomBackground/YouTube.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>31</width>
+       <height>31</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="10">
+    <widget class="QToolButton" name="toolButton_facebook">
+     <property name="maximumSize">
+      <size>
+       <width>31</width>
+       <height>31</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>...</string>
+     </property>
+     <property name="icon">
+      <iconset resource="AnKing/icons.qrc">
+       <normaloff>:/CustomBackground/Facebook.png</normaloff>:/CustomBackground/Facebook.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>31</width>
+       <height>31</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0" colspan="12">
+    <widget class="QGroupBox" name="groupBox_5">
+     <property name="title">
+      <string>Background color</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_11">
+        <property name="text">
+         <string>Main:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="lineEdit_color_main"/>
+      </item>
+      <item row="0" column="2">
+       <widget class="QToolButton" name="toolButton_color_main">
+        <property name="text">
+         <string>...</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <widget class="QLabel" name="label_12">
+        <property name="text">
+         <string>Top toolbar:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="4">
+       <widget class="QLineEdit" name="lineEdit_color_top"/>
+      </item>
+      <item row="0" column="5">
+       <widget class="QToolButton" name="toolButton_color_top">
+        <property name="text">
+         <string>...</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="3">
+       <widget class="QLabel" name="label_13">
+        <property name="text">
+         <string>Bottom toolbar:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="4">
+       <widget class="QLineEdit" name="lineEdit_color_bottom"/>
+      </item>
+      <item row="1" column="5">
+       <widget class="QToolButton" name="toolButton_color_bottom">
+        <property name="text">
+         <string>...</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="0" column="5">
+    <widget class="QToolButton" name="toolButton_website">
+     <property name="maximumSize">
+      <size>
+       <width>31</width>
+       <height>31</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>...</string>
+     </property>
+     <property name="icon">
+      <iconset resource="AnKing/icons.qrc">
+       <normaloff>:/CustomBackground/AnKingSmall.png</normaloff>:/CustomBackground/AnKingSmall.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>31</width>
+       <height>31</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="9">
+    <widget class="QToolButton" name="toolButton_instagram">
+     <property name="maximumSize">
+      <size>
+       <width>31</width>
+       <height>31</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>...</string>
+     </property>
+     <property name="icon">
+      <iconset resource="AnKing/icons.qrc">
+       <normaloff>:/CustomBackground/Instagram.png</normaloff>:/CustomBackground/Instagram.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>31</width>
+       <height>31</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="7" colspan="2">
+    <widget class="QToolButton" name="toolButton_patreon">
+     <property name="maximumSize">
+      <size>
+       <width>171</width>
+       <height>26</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>...</string>
+     </property>
+     <property name="icon">
+      <iconset resource="AnKing/icons.qrc">
+       <normaloff>:/CustomBackground/Patreon.png</normaloff>:/CustomBackground/Patreon.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>200</width>
+       <height>31</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="12">
+    <widget class="QGroupBox" name="groupBox">
+     <property name="whatsThis">
+      <string/>
+     </property>
+     <property name="title">
+      <string/>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_5">
+      <item row="2" column="1">
+       <widget class="QPushButton" name="pushButton_randomize">
+        <property name="text">
+         <string>Random Images</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QToolButton" name="toolButton_background">
+        <property name="text">
+         <string>...</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QPushButton" name="pushButton_imageFolder">
+        <property name="text">
+         <string>Open Image Folders</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QToolButton" name="toolButton_gear">
+        <property name="text">
+         <string>...</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="lineEdit_background"/>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label">
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Name of the background image file.&lt;/p&gt;&lt;p&gt;&amp;quot;Random&amp;quot; will shuffle through defaults&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="toolTipDuration">
+         <number>10000</number>
+        </property>
+        <property name="text">
+         <string>Image name for background:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="lineEdit_gear"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Name of the file to replace the gear icon. &lt;/p&gt;&lt;p&gt;Anki default is gears.svg&lt;/p&gt;&lt;p&gt;&amp;quot;Random&amp;quot; will shuffle through defaults&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="toolTipDuration">
+         <number>10000</number>
+        </property>
+        <property name="text">
+         <string>Image name for gear icon:</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="3" column="0" colspan="12">
+    <widget class="QGroupBox" name="groupBox_4">
+     <property name="title">
+      <string/>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>Attachment:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QComboBox" name="comboBox_attachment">
+        <item>
+         <property name="text">
+          <string>fixed</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>scroll</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QLabel" name="label_8">
+        <property name="text">
+         <string>Size:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <widget class="QComboBox" name="comboBox_size">
+        <item>
+         <property name="text">
+          <string>cover</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>contain</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_7">
+        <property name="text">
+         <string>Position:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QComboBox" name="comboBox_position">
+        <property name="currentText">
+         <string>left top</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>left top</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>center top</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>right top</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>right</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>left</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>center</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>left bottom</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>center bottom</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>right bottom</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QLabel" name="label_9">
+        <property name="text">
+         <string>Scale:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="3">
+       <widget class="QDoubleSpinBox" name="scaleBox">
+        <property name="decimals">
+         <number>1</number>
+        </property>
+        <property name="minimum">
+         <double>0.100000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.100000000000000</double>
+        </property>
+        <property name="value">
+         <double>1.000000000000000</double>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="5" column="11">
+    <widget class="QPushButton" name="OkButton">
+     <property name="text">
+      <string>OK</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0" colspan="8">
+    <widget class="QGroupBox" name="groupBox_2">
+     <property name="title">
+      <string/>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_4">
+      <item row="0" column="0">
+       <widget class="QCheckBox" name="checkBox_reviewer">
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Show the background image in the reviewer screen&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="toolTipDuration">
+         <number>10000</number>
+        </property>
+        <property name="text">
+         <string>Show in reviewer</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QCheckBox" name="checkBox_toolbar">
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Show the background image in the top and bottom toolbars in addition to the main screen&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="toolTipDuration">
+         <number>10000</number>
+        </property>
+        <property name="text">
+         <string>Show in toolbar</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QCheckBox" name="checkBox_topbottom">
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Set the background position of the toolbars to top and bottom (if the main background position is set to center, this will look cleaner for most images)&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="toolTipDuration">
+         <number>10000</number>
+        </property>
+        <property name="text">
+         <string>Toolbar top/bottom</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="5" column="0" colspan="8">
+    <widget class="QPushButton" name="pushButton_videoTutorial">
+     <property name="text">
+      <string>Video Tutorial</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="8" colspan="4">
+    <widget class="QGroupBox" name="groupBox_3">
+     <property name="title">
+      <string>Background opacity</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_3">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_5">
+        <property name="toolTip">
+         <string/>
+        </property>
+        <property name="toolTipDuration">
+         <number>-1</number>
+        </property>
+        <property name="statusTip">
+         <string/>
+        </property>
+        <property name="whatsThis">
+         <string/>
+        </property>
+        <property name="text">
+         <string>Main</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QSlider" name="Slider_main">
+        <property name="toolTip">
+         <string/>
+        </property>
+        <property name="toolTipDuration">
+         <number>-1</number>
+        </property>
+        <property name="whatsThis">
+         <string/>
+        </property>
+        <property name="maximum">
+         <number>100</number>
+        </property>
+        <property name="pageStep">
+         <number>1</number>
+        </property>
+        <property name="value">
+         <number>100</number>
+        </property>
+        <property name="sliderPosition">
+         <number>100</number>
+        </property>
+        <property name="tracking">
+         <bool>true</bool>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="tickPosition">
+         <enum>QSlider::NoTicks</enum>
+        </property>
+        <property name="tickInterval">
+         <number>5</number>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_6">
+        <property name="text">
+         <string>Review</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QSlider" name="Slider_review">
+        <property name="maximum">
+         <number>100</number>
+        </property>
+        <property name="pageStep">
+         <number>10</number>
+        </property>
+        <property name="value">
+         <number>1</number>
+        </property>
+        <property name="sliderPosition">
+         <number>1</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="invertedAppearance">
+         <bool>false</bool>
+        </property>
+        <property name="tickPosition">
+         <enum>QSlider::NoTicks</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
   <zorder>groupBox_5</zorder>
   <zorder>groupBox_4</zorder>
   <zorder>groupBox_3</zorder>
-  <zorder>groupBox</zorder>
-  <zorder>label</zorder>
-  <zorder>label_2</zorder>
-  <zorder>lineEdit_background</zorder>
-  <zorder>lineEdit_gear</zorder>
   <zorder>groupBox_2</zorder>
-  <zorder>Slider_main</zorder>
-  <zorder>label_5</zorder>
-  <zorder>label_6</zorder>
-  <zorder>Slider_review</zorder>
-  <zorder>comboBox_attachment</zorder>
-  <zorder>comboBox_position</zorder>
-  <zorder>lineEdit_color_main</zorder>
-  <zorder>lineEdit_color_top</zorder>
-  <zorder>lineEdit_color_bottom</zorder>
-  <zorder>label_4</zorder>
-  <zorder>label_7</zorder>
-  <zorder>label_9</zorder>
-  <zorder>scaleBox</zorder>
-  <zorder>OkButton</zorder>
-  <zorder>toolButton_website</zorder>
-  <zorder>toolButton_youtube</zorder>
-  <zorder>toolButton_facebook</zorder>
-  <zorder>toolButton_instagram</zorder>
-  <zorder>toolButton_patreon</zorder>
+  <zorder>groupBox</zorder>
   <zorder>pushButton_videoTutorial</zorder>
   <zorder>RestoreButton</zorder>
+  <zorder>toolButton_patreon</zorder>
+  <zorder>toolButton_facebook</zorder>
+  <zorder>toolButton_instagram</zorder>
+  <zorder>toolButton_website</zorder>
+  <zorder>toolButton_youtube</zorder>
+  <zorder>OkButton</zorder>
  </widget>
  <resources>
   <include location="AnKing/icons.qrc"/>

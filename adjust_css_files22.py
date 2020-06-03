@@ -42,7 +42,7 @@ def add_bg_img(filecontent, imgname, location, review=False):
         background = f"""
     background-image: url("{img_web_rel_path}"); 
     background-size: {gc("background-size", "contain")};  
-    background-attachment: {gc("background-attachment", "fixed")}; 
+    background-attachment: {gc("background-attachment", "fixed")}!important; 
     background-repeat: no-repeat;
     background-position: {bg_position};
     background-color: {bg_color}!important; 
