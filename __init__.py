@@ -15,7 +15,7 @@ from aqt.editor import pics
 #for the toolbar buttons
 from aqt.qt import *
 from aqt.addons import *
-from aqt.utils import openFolder 
+from aqt.utils import openFolder, showInfo
 
 
 from .config import addon_path, addonfoldername, gc
@@ -86,8 +86,16 @@ for f in change_copy:
 
 
 css_files_to_replace = [os.path.basename(f) for f in os.listdir(web_absolute) if f.endswith(".css")]
+
+from anki.utils import pointVersion 
+def maybe_adjust_filename_for_2136(filename): 
+    if pointVersion() >= 36: 
+        filename = filename.lstrip("css/") 
+    return filename
+
 def replace_css(web_content, context):
     for idx, filename in enumerate(web_content.css):
+        filename = maybe_adjust_filename_for_2136(filename)
         if filename in css_files_to_replace:
             web_content.css[idx] = f"/_addons/{addonfoldername}/web/css/{filename}"
             web_content.css.append(f"/_addons/{addonfoldername}/user_files/css/custom_{filename}")
@@ -143,3 +151,25 @@ action.setText("Background/gear image folder")
 action.setShortcut(QKeySequence(shortcut))
 menu.addAction(action) 
 action.triggered.connect(lambda: openFolder(imgfolder))
+
+def wc(arg, val):
+    config = mw.addonManager.getConfig(__name__)
+    config[arg] = val
+    mw.addonManager.writeConfig(__name__, config)
+
+def notify():
+    if pointVersion() >=36:
+        if gc("notify", True):
+            message = """The <i>Custom Background and Gear Icon addon</i> you have updated or downloaded
+            has not been fully tested for Anki 2.1.36+. 
+            <br><br>
+            We are currently testing a version with multiple other updates on our 
+            <a href="https://www.patreon.com/ankingmed">Patreon</a>.
+            <br><br>
+            Thanks,
+            <br>
+                 -The AnKing
+            """
+            showInfo(message, textFormat="rich")
+            wc("notify", False)
+notify()
