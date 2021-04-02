@@ -118,23 +118,4 @@ body {
 .nightMode .filtered {
   color: #77ccff !important;
 }
-body::before {
-
-    background-image: url("/_addons/zCustomback-gui/user_files/background/AnKing.png"); 
-    background-size: cover;  
-    background-attachment: fixed!important; 
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: !important; 
-    opacity: 0.22;
-    content: "";
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: fixed;
-    z-index: -99;
-    will-change: transform;
-    transform: scale(1.0);
-    
-}
+/*AnKing edits*/
