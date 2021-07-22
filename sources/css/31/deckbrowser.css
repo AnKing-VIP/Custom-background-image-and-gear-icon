@@ -1,0 +1,121 @@
+/* night-mode-specific colours */
+.review-count {
+  color: #0a0;
+}
+
+.new-count {
+  color: #00a;
+}
+
+.learn-count {
+  color: #C35617;
+}
+
+.zero-count {
+  color: #ddd;
+}
+
+.nightMode .review-count {
+  color: #5CcC00;
+}
+.nightMode .new-count {
+  color: #77ccff;
+}
+.nightMode .learn-count {
+  color: #FF935B;
+}
+.nightMode .zero-count {
+  color: #444;
+}
+
+/* Copyright: Ankitects Pty Ltd and contributors
+ * License: GNU AGPL, version 3 or later; http://www.gnu.org/licenses/agpl.html */
+a.deck {
+  color: black;
+  text-decoration: none;
+  min-width: 5em;
+  display: inline-block;
+}
+
+a.deck:hover {
+  text-decoration: underline;
+}
+
+tr.deck td {
+  border-bottom: 1px solid #e7e7e7;
+}
+
+tr.top-level-drag-row td {
+  border-bottom: 1px solid transparent;
+}
+
+td {
+  white-space: nowrap;
+}
+
+tr.drag-hover td {
+  border-bottom: 1px solid #aaa;
+}
+
+body {
+  margin: 1em;
+  -webkit-user-select: none;
+}
+
+.current {
+  background-color: rgba(231, 231, 231, 0.3)/*  #e7e7e7; */
+}
+
+.decktd {
+  min-width: 15em;
+}
+
+.count {
+  min-width: 4em;
+  text-align: right;
+}
+
+.optscol {
+  width: 2em;
+}
+
+.collapse {
+  color: black;
+  text-decoration: none;
+  display: inline-block;
+  width: 1em;
+}
+
+.filtered {
+  color: #00a !important;
+}
+
+.gears {
+  width: 1em;
+  height: 1em;
+  opacity: 0.5;
+  padding-top: 0.2em;
+}
+
+.nightMode a.deck {
+  color: white;
+}
+.nightMode tr.deck td {
+  border-bottom-color: #29292B;
+}
+.nightMode tr.drag-hover td {
+  border-bottom-color: #777;
+}
+.nightMode .current {
+  background-color: rgba(41, 41, 43, 0.3); /* #29292B; */
+}
+.nightMode .collapse {
+  color: white;
+}
+.nightMode .gears {
+  filter: invert(180);
+}
+.nightMode .filtered {
+  color: #77ccff !important;
+}
+/*AnKing edits*/

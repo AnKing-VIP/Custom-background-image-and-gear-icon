@@ -1,0 +1,89 @@
+/* night-mode-specific colours */
+/* Copyright: Ankitects Pty Ltd and contributors
+ * License: GNU AGPL, version 3 or later; http://www.gnu.org/licenses/agpl.html */
+#header {
+  padding: 3px;
+  font-weight: bold;
+  border-bottom: 1px solid #aaa;
+}
+
+.tdcenter {
+  white-space: nowrap;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-user-select: none;
+  overflow: hidden;
+}
+
+* {
+  -webkit-user-drag: none;
+}
+
+.hitem {
+  padding-right: 12px;
+  padding-left: 12px;
+  text-decoration: none;
+  color: black;
+}
+
+.hitem:hover {
+  text-decoration: underline;
+}
+
+.hitem:focus {
+  outline: 0;
+}
+
+.nightMode .hitem {
+  color: white;
+}
+.nightMode #header {
+  border-bottom-color: #29292B;
+}
+.nightMode .normal-sync {
+  color: #77ccff;
+}
+.nightMode .full-sync {
+  color: #FF935B;
+}
+
+.isMac.nightMode #header {
+  border-bottom-color: #3a3a3a;
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+.spin {
+  animation: spin;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  display: inline-block;
+  visibility: visible !important;
+  animation-timing-function: linear;
+}
+
+#sync-spinner {
+  width: 16px;
+  height: 16px;
+  margin-bottom: -3px;
+  visibility: hidden;
+}
+
+.normal-sync {
+  color: #00a;
+}
+
+.full-sync {
+  color: #C35617;
+}
+
+/*AnKing edits*/  

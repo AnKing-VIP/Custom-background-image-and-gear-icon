@@ -1,9 +1,10 @@
 {
     "min_point_version": 22,
-    "name": "Custom background update",
-    "package": "Custom_background_update",    
-    "ankiweb_id": "",
-    "version": "v3.4.0",
+    "name": "Custom background 3.0",
+    "package": "1210908941",  
+    "mod": 1626989009,
+    "ankiweb_id": "1210908941",
+    "version": "v3.1.0",
     "author": "The AnKing",
     "conflicts": []
 }

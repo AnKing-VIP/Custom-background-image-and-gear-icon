@@ -29,9 +29,12 @@ from .config import addon_path, addonfoldername, gc, getUserOption
 from . import gui_updatemanager
 
 css_folder_for_anki_version = {
-    "22": "22",
-    "23": "22", # example: for Anki version 23 use the contents of the folder 22 
-    "25": "25"  
+    "22": "22", "23": "22", "24": "22",
+    "25": "25","26": "25","27": "25","28": "25","29": "25","30": "25",
+    "31": "31","32": "31","33": "31","34": "31","35": "31",
+    "36": "36","37": "36","38": "36","39": "36","40": "36",
+    "41": "36","42": "36","43": "36","44": "36",
+    "45": "36"
 }
 
 

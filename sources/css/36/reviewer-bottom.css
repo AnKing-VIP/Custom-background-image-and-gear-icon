@@ -1,31 +1,30 @@
-/* night-mode-specific colours */
 .review-count {
-  color: #0a0;
+  color: var(--review-count);
 }
 
 .new-count {
-  color: #00a;
+  color: var(--new-count);
 }
 
 .learn-count {
-  color: #C35617;
+  color: var(--learn-count);
 }
 
 .zero-count {
-  color: #ddd;
+  color: var(--zero-count);
 }
 
 .nightMode .review-count {
-  color: #5CcC00;
+  color: var(--review-count);
 }
 .nightMode .new-count {
-  color: #77ccff;
+  color: var(--new-count);
 }
 .nightMode .learn-count {
-  color: #FF935B;
+  color: var(--learn-count);
 }
 .nightMode .zero-count {
-  color: #444;
+  color: var(--zero-count);
 }
 
 /* Copyright: Ankitects Pty Ltd and contributors
@@ -79,7 +78,7 @@ button {
 }
 
 #outer {
-  border-top: 1px solid #aaa;
+  border-top: 1px solid var(--border);
 }
 
 #innertable {
@@ -87,6 +86,6 @@ button {
 }
 
 .nightMode #outer {
-  border-top-color: #29292B;
+  border-top-color: var(--faint-border);
 }
-  /*AnKing edits*/
+/*AnKing edits*/
