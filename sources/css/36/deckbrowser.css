@@ -62,7 +62,7 @@ body {
 }
 
 .current {
-  background-color: rgba(231, 231, 231, 0.3) /*var(--faint-border); */
+  /*background-color: rgba(231, 231, 231, 0.3) */var(--faint-border);
 }
 
 .decktd {
