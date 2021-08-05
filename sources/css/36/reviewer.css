@@ -24,7 +24,6 @@ img {
   right: 10px;
   top: 0;
   font-size: 30px;
-  display: none;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
 }
@@ -34,8 +33,7 @@ img {
   left: 10px;
   top: 0;
   font-size: 30px;
-  color: yellow;
-  display: none;
+  color:#ff0;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
 }
