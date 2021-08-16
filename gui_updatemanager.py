@@ -406,7 +406,7 @@ def setupMenu():
             continue
 
         hk=QKeySequence()
-        act=QAction(t,mw)
+        act=QAction(title,mw)
         act.setShortcut(QKeySequence(hk))
         act.triggered.connect(cb)
         submenu.addAction(act)
