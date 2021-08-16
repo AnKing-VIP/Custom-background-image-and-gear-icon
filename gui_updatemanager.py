@@ -401,7 +401,10 @@ def setupMenu():
     menu_name = "&AnKing"
     menu = getMenu(mw, menu_name)
     submenu = getSubMenu(menu, "Get Anki Help")
-    for k,t,cb in MENU_OPTIONS:
+    for k, title, cb in MENU_OPTIONS:
+        if title in [x.text() for x in submenu.actions()]:
+            continue
+
         hk=QKeySequence()
         act=QAction(t,mw)
         act.setShortcut(QKeySequence(hk))
