@@ -9,7 +9,7 @@
 import os
 from aqt.qt import *
 from aqt import mw
-from aqt.utils import getFile, openFolder
+from aqt.utils import getFile, openFolder, openLink
 from anki import version as anki_version
 
 import webbrowser
@@ -347,72 +347,83 @@ m.addAction(a)
 '''
 mw.addonManager.setConfigAction(__name__, SettingsDialogExecute)
 
-'''
-def add_menu(Name, Button, exe, *sc):
-	action = QAction(Button, mw)
-	action.triggered.connect(exe)
-	if not hasattr(mw, 'menu'):
-		mw.menu = {}
-	if Name not in mw.menu:
-		add = QMenu(Name, mw)
-		mw.menu[Name] = add
-		mw.form.menubar.insertMenu(mw.form.menuTools.menuAction(), add)
-	mw.menu[Name].addAction(action)
-	for i in sc:
-		action.setShortcut(QKeySequence(i))
 
-add_menu('&AnKing',"Custom BackGround and Gear Icon", SettingsDialogExecute, 'Shift+X')
-'''
+########################################
 
 
-def getMenu(parent, menuName):
-    menubar = parent.form.menubar
+def create_get_help_submenu(parent: QMenu) -> QMenu:
+    submenu_name = "Get Anki Help"
+    menu_options = [
+        (
+            "Online Mastery Course",
+            "https://courses.ankipalace.com/?utm_source=anking_bg_add-on&utm_medium=anki_add-on&utm_campaign=mastery_course",
+        ),
+        ("Daily Q and A Support", "https://www.ankipalace.com/memberships"),
+        ("1-on-1 Tutoring", "https://www.ankipalace.com/tutoring"),
+    ]
+    submenu = QMenu(submenu_name, parent)
+    for name, url in menu_options:
+        act = QAction(name, mw)
+        act.triggered.connect(lambda _: openLink(url))
+        submenu.addAction(act)
+    return submenu
+
+
+def maybe_add_get_help_submenu(menu: QMenu) -> None:
+    """Adds 'Get Anki Help' submenu in 'Anking' menu if needed.
+
+    The submenu is added if:
+     - The submenu does not exist in menu
+     - The submenu is an outdated version - existing is deleted
+
+    With versioning and anking_get_help property,
+    future version can rename, hide, or change contents in the submenu
+    """
+    submenu_property = "anking_get_help"
+    submenu_ver = 2
+    for act in menu.actions():
+        if act.property(submenu_property) or act.text() == "Get Anki Help":
+            ver = act.property("version")
+            if ver and ver >= submenu_ver:
+                return
+            submenu = create_get_help_submenu(menu)
+            menu.insertMenu(act, submenu)
+            menu.removeAction(act)
+            act.deleteLater()
+            new_act = submenu.menuAction()
+            new_act.setProperty(submenu_property, True)
+            new_act.setProperty("version", submenu_ver)
+            return
+    else:
+        submenu = create_get_help_submenu(menu)
+        menu.addMenu(submenu)
+        new_act = submenu.menuAction()
+        new_act.setProperty(submenu_property, True)
+        new_act.setProperty("version", submenu_ver)
+
+
+def get_anking_menu() -> QMenu:
+    """Return AnKing menu. If it doesn't exist, create one. Make sure its submenus are up to date."""
+    menu_name = "&AnKing"
+    menubar = mw.form.menubar
     for a in menubar.actions():
-        if menuName == a.text():
-            return a.menu()
+        if menu_name == a.text():
+            menu = a.menu()
+            break
     else:
-        return menubar.addMenu(menuName)
+        menu = menubar.addMenu(menu_name)
+    maybe_add_get_help_submenu(menu)
+    return menu
 
 
-def getSubMenu(menu, subMenuName):
-    for a in menu.actions():
-        if subMenuName == a.text():
-            return a.menu()
-    else:
-        subMenu = QMenu(subMenuName, menu)
-        menu.addMenu(subMenu)
-        return subMenu
+########################################
 
-def openWeb1():
-    webbrowser.open('https://courses.ankipalace.com/?utm_source=anking_bg_add-on&utm_medium=anki_add-on&utm_campaign=mastery_course')
-
-def openWeb2():
-    webbrowser.open('https://www.ankipalace.com/memberships')
-
-def openWeb3():
-    webbrowser.open('https://www.ankipalace.com/tutoring')
 
 def setupMenu():
-    MENU_OPTIONS=( # CONF_KEY, TITLE, CALLBACK
-        ("", "Online Mastery Course", openWeb1),
-        ("", "Daily Q and A Support", openWeb2),
-        ("", "1-on-1 Tutoring", openWeb3)
-    )
-    menu_name = "&AnKing"
-    menu = getMenu(mw, menu_name)
-    submenu = getSubMenu(menu, "Get Anki Help")
-    for k, title, cb in MENU_OPTIONS:
-        if title in [x.text() for x in submenu.actions()]:
-            continue
-
-        hk=QKeySequence()
-        act=QAction(title,mw)
-        act.setShortcut(QKeySequence(hk))
-        act.triggered.connect(cb)
-        submenu.addAction(act)
-        #menuItem[k]=act
+    menu = get_anking_menu()
     a = QAction("Custom Background and Gear Icon", mw)
     a.triggered.connect(SettingsDialogExecute)
     menu.addAction(a)
+
 
 setupMenu()
