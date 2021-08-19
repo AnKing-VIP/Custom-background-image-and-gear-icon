@@ -297,6 +297,7 @@ class SettingsDialog(QDialog):
         f = self.form
         f.lineEdit_background.setText("random")
         f.lineEdit_gear.setText("random")
+        self._refresh()
     
     def resetConfig(self):
         global conf
@@ -309,14 +310,17 @@ class SettingsDialog(QDialog):
     def _refresh(self, ms=100):
         if self.timer:
             self.timer.stop()
-        old_anki = tuple(int(i) for i in anki_version.split(".")) < (2, 1, 27)
 
-        if old_anki:        
+        anki_version_tuple = tuple(int(i) for i in anki_version.split("."))
+        if anki_version_tuple < (2, 1, 27):        
             self.timer = mw.progress.timer(
                 ms, lambda:mw.reset(True), False)  
-        else:
+        elif anki_version_tuple < (2, 1, 45):
             self.timer = mw.progress.timer(
                 ms, self._resetMainWindow, False)
+        else:
+            self.timer = mw.progress.timer(
+                ms, lambda : mw.moveToState("deckBrowser"), False) 
 
     def _resetMainWindow(self):
         mw.reset(True)
