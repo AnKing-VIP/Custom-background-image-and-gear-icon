@@ -12,8 +12,6 @@ from aqt import mw
 from aqt.utils import getFile, openFolder, openLink
 from anki import version as anki_version
 
-import webbrowser
-
 from .settings import Ui_Dialog
 from .config import getUserOption, writeConfig, addon_path, getDefaultConfig
 conf = getUserOption()
@@ -283,17 +281,17 @@ class SettingsDialog(QDialog):
    
     def openWeb(self, site):
         if site == "anking":
-            webbrowser.open('https://www.ankingmed.com')
-        elif site == "youtube":        
-            webbrowser.open('https://www.youtube.com/theanking')
-        elif site == "patreon":        
-            webbrowser.open('https://www.patreon.com/ankingmed')
-        elif site == "instagram":        
-            webbrowser.open('https://instagram.com/ankingmed')
-        elif site == "facebook":        
-            webbrowser.open('https://facebook.com/ankingmed')
-        elif site == "video":        
-            webbrowser.open('https://youtu.be/5XAq0KpU3Jc')
+            openLink("https://www.ankingmed.com")
+        elif site == "youtube":
+            openLink("https://www.youtube.com/theanking")
+        elif site == "patreon":
+            openLink("https://www.patreon.com/ankingmed")
+        elif site == "instagram":
+            openLink("https://instagram.com/ankingmed")
+        elif site == "facebook":
+            openLink("https://facebook.com/ankingmed")
+        elif site == "video":
+            openLink("https://youtu.be/5XAq0KpU3Jc")
 
     def random(self):
         f = self.form
