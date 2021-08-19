@@ -12,7 +12,7 @@ from aqt import mw
 from aqt.utils import getFile, openFolder, openLink
 from anki import version as anki_version
 
-from .settings import Ui_Dialog
+from .settings_dialog import Ui_Dialog
 from .config import getUserOption, writeConfig, addon_path, getDefaultConfig
 conf = getUserOption()
 
@@ -73,6 +73,7 @@ class SettingsDialog(QDialog):
         f.toolButton_patreon.clicked.connect(lambda _:self.openWeb("patreon"))
         f.toolButton_instagram.clicked.connect(lambda _:self.openWeb("instagram"))
         f.toolButton_facebook.clicked.connect(lambda _:self.openWeb("facebook"))
+        f.toolButton_palace.clicked.connect(lambda _:self.openWeb("palace"))
 
         # Color Pickers -------------
         controller = {
@@ -292,6 +293,8 @@ class SettingsDialog(QDialog):
             openLink("https://facebook.com/ankingmed")
         elif site == "video":
             openLink("https://youtu.be/5XAq0KpU3Jc")
+        elif site == "palace":
+            openLink("https://courses.ankipalace.com/?utm_source=anking_bg_add-on&utm_medium=anki_add-on&utm_campaign=mastery_course")
 
     def random(self):
         f = self.form
