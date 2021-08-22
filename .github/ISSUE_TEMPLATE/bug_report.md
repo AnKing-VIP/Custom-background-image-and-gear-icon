@@ -18,18 +18,17 @@ assignees: ''
 
  - [ ] I've restarted Anki to see if it helps
  - [ ] I've verified that I use the latest version of the add-on by redownloading it from AnkiWeb
- - [ ] I've verified that I use the latest version of Anki by checking at https://apps.ankiweb.net#download
  - [ ] I've tried to disable other add-ons to see if there are any interactions present
  - [ ] My issue disappears when I hold shift while starting Anki.
  - [ ] I've checked if anyone else reported this problem before by looking through the issue reports. I also checked to see if there is a section about known issues in the add-on description, documentation, or README.
  
 
-#### Information about your Anki set-up
+#### What Anki version are you using?
 
-*Please open Anki, go to Help → About, click on "Copy Debug Info", and paste the result between the backticks below (if the button does not appear you are using an older version of Anki 2.1 and will need to update first):*
+*Please open Anki, go to Help → About (windows) or Anki → About Anki (mac) to find the version. Edit the value between the backticks below
 
 ```
-
+2.1.##
 ```
 
 #### Error message (if any)
@@ -37,6 +36,6 @@ assignees: ''
 *If you've received an error message, please copy and paste it between the backticks below:*
 
 
-```python
+```
 
 ```
