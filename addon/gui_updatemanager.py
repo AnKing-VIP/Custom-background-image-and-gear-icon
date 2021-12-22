@@ -196,10 +196,10 @@ class SettingsDialog(QDialog):
 
         # Sliders --------------
         c = float(conf["background opacity main"])
-        f.Slider_main.setValue(c*100)
+        f.Slider_main.setValue(int(c*100))
 
         c = float(conf["background opacity review"])
-        f.Slider_review.setValue(c*100)
+        f.Slider_review.setValue(int(c*100))
 
         # QDoubleSpinBox ------------------
         c = float(conf["background scale"])
