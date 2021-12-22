@@ -12,7 +12,12 @@ from aqt import mw
 from aqt.utils import getFile, openFolder, openLink
 from anki import version as anki_version
 
-from .settings_dialog import Ui_Dialog
+try:
+    from .settings_dialog_qt6 import Ui_Dialog
+except:
+    from .settings_dialog import Ui_Dialog
+
+
 from .config import getUserOption, writeConfig, addon_path, getDefaultConfig
 conf = getUserOption()
 
