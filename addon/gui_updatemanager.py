@@ -39,7 +39,7 @@ class SettingsDialog(QDialog):
     timer = None
 
     def __init__(self, parent):
-        QDialog.__init__(self, mw, Qt.Window)
+        QDialog.__init__(self, mw, Qt.WindowType.Window)
         mw.setupDialogGC(self)
         self.mw = mw
         self.parent = parent
@@ -47,7 +47,7 @@ class SettingsDialog(QDialog):
         self.loadConfigData()
         self.setupConnections()
         
-        self.exec_()
+        self.exec()
 
 
     def reject(self):
