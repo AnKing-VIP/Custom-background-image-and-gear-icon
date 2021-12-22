@@ -12,7 +12,12 @@ from aqt import mw
 from aqt.utils import getFile, openFolder, openLink
 from anki import version as anki_version
 
-from .settings_dialog import Ui_Dialog
+try:
+    from .settings_dialog_qt6 import Ui_Dialog
+except:
+    from .settings_dialog import Ui_Dialog
+
+
 from .config import getUserOption, writeConfig, addon_path, getDefaultConfig
 conf = getUserOption()
 
@@ -34,7 +39,7 @@ class SettingsDialog(QDialog):
     timer = None
 
     def __init__(self, parent):
-        QDialog.__init__(self, mw, Qt.Window)
+        QDialog.__init__(self, mw, Qt.WindowType.Window)
         mw.setupDialogGC(self)
         self.mw = mw
         self.parent = parent
@@ -42,7 +47,7 @@ class SettingsDialog(QDialog):
         self.loadConfigData()
         self.setupConnections()
         
-        self.exec_()
+        self.exec()
 
 
     def reject(self):
@@ -196,10 +201,10 @@ class SettingsDialog(QDialog):
 
         # Sliders --------------
         c = float(conf["background opacity main"])
-        f.Slider_main.setValue(c*100)
+        f.Slider_main.setValue(int(c*100))
 
         c = float(conf["background opacity review"])
-        f.Slider_review.setValue(c*100)
+        f.Slider_review.setValue(int(c*100))
 
         # QDoubleSpinBox ------------------
         c = float(conf["background scale"])
