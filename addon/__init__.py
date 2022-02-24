@@ -6,6 +6,7 @@
 
 import os
 import random
+from pathlib import Path
 
 from anki.utils import pointVersion
 from aqt import mw
@@ -17,8 +18,8 @@ from aqt.qt import *
 from aqt.addons import *
 from aqt.utils import openFolder 
 from .adjust_css_files22 import *
-from . import icons_rc
 
+QDir.addSearchPath("CustomBackground", str(Path(__file__).parent / "AnKing"))
 
 
 
