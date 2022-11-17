@@ -1,0 +1,62 @@
+.review-count {
+  color: var(--review-count);
+}
+
+.new-count {
+  color: var(--new-count);
+}
+
+.learn-count {
+  color: var(--learn-count);
+}
+
+.zero-count {
+  color: var(--zero-count);
+}
+
+.nightMode .review-count {
+  color: var(--review-count);
+}
+.nightMode .new-count {
+  color: var(--new-count);
+}
+.nightMode .learn-count {
+  color: var(--learn-count);
+}
+.nightMode .zero-count {
+  color: var(--zero-count);
+}
+
+/* Copyright: Ankitects Pty Ltd and contributors
+ * License: GNU AGPL, version 3 or later; http://www.gnu.org/licenses/agpl.html */
+.smallLink {
+  font-size: 10px;
+}
+
+h3 {
+  margin-bottom: 0;
+}
+
+.descfont {
+  padding: 1em;
+  color: var(--slightly-grey-text);
+}
+
+.description {
+  white-space: pre-wrap;
+}
+
+#fulldesc {
+  display: none;
+}
+
+.descmid {
+  width: 70%;
+  margin: 0 auto 0;
+  text-align: left;
+}
+
+.dyn {
+  text-align: center;
+}
+/*AnKing edits*/

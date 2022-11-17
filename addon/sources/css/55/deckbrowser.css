@@ -1,0 +1,163 @@
+
+
+.review-count {
+  color: var(--state-review);
+}
+
+.new-count {
+  color: var(--state-new);
+}
+
+.learn-count {
+  color: var(--state-learn);
+}
+
+.zero-count {
+  color: var(--fg-faint);
+}
+
+.bury-count {
+  color: var(--fg-disabled);
+  font-weight: bold;
+  margin-inline-start: 2px;
+}
+
+.bury-count:empty {
+  display: none;
+}
+
+
+/* Copyright: Ankitects Pty Ltd and contributors
+ * License: GNU AGPL, version 3 or later; http://www.gnu.org/licenses/agpl.html */
+a.deck {
+  color: var(--fg);
+  text-decoration: none;
+  min-width: 5em;
+  display: inline-block;
+}
+
+a.deck:hover {
+  text-decoration: underline;
+}
+
+th {
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 5px;
+}
+
+tr.deck td {
+  padding: 5px 12px;
+}
+
+
+tr.top-level-drag-row td {
+  border-bottom: 1px solid transparent;
+}
+
+td {
+  white-space: nowrap;
+}
+
+tr.drag-hover td {
+  border-bottom: 1px solid var(--border);
+}
+
+body {
+  margin: 2em 1em 1em 1em;
+  -webkit-user-select: none;
+}
+
+.current td,
+tr:hover:not(.top-level-drag-row) td {
+  /* background: var(--canvas-inset); */
+}
+
+.current td:first-child,
+tr:hover:not(.top-level-drag-row) td:first-child {
+  border-top-left-radius: var(--border-radius-large);
+  border-bottom-left-radius: var(--border-radius-large);
+}
+
+.current td:last-child,
+tr:hover:not(.top-level-drag-row) td:last-child {
+  border-top-right-radius: var(--border-radius-large);
+  border-bottom-right-radius: var(--border-radius-large);
+}
+
+.current td .gears,
+tr:hover:not(.top-level-drag-row) td .gears {
+  visibility: visible;
+}
+
+[dir=rtl] .current td,
+[dir=rtl] tr:hover:not(.top-level-drag-row) td {
+  background: var(--canvas-inset);
+}
+
+[dir=rtl] .current td:first-child,
+[dir=rtl] tr:hover:not(.top-level-drag-row) td:first-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: var(--border-radius-large);
+  border-bottom-right-radius: var(--border-radius-large);
+}
+
+[dir=rtl] .current td:last-child,
+[dir=rtl] tr:hover:not(.top-level-drag-row) td:last-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: var(--border-radius-large);
+  border-bottom-left-radius: var(--border-radius-large);
+}
+.decktd {
+  min-width: 15em;
+  max-width: calc(100vw - 300px);
+  overflow: hidden;
+}
+
+.count {
+  min-width: 4em;
+  text-align: right;
+}
+
+.optscol {
+  width: 2em;
+}
+
+.collapse {
+  color: var(--text-fg);
+  text-decoration: none;
+  display: inline-block;
+  width: 1em;
+}
+
+.filtered {
+  color: var(--fg-link) !important;
+}
+
+.gears {
+  width: 1em;
+  height: 1em;
+  opacity: 0.5;
+  padding-top: 0.2em;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.nightMode .gears {
+  filter: invert(180);
+}
+.callout {
+  background: var(--border);
+  padding: 1em;
+  margin: 1em;
+}
+
+.callout div {
+  margin: 1em;
+}
+
+#studiedToday {
+  margin: 2em 0;
+}
+/*AnKing edits*/
