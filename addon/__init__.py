@@ -39,9 +39,8 @@ css_folder_for_anki_version = {
     "50": "36","51": "36","52": "36","53": "36","54": "36",
     "55": "55"
 }
+v = str(pointVersion())
 
-
-v = pointVersion()
 if v in css_folder_for_anki_version:
     version_folder = css_folder_for_anki_version[v]
 else:  # for newer Anki versions try the latest version and hope for the best
