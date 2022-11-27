@@ -57,6 +57,10 @@ mw.addonManager.setWebExports(__name__, regex)
 def update_css():
     # on startup: combine template files with config and write into webexports folder
     change_copy = [os.path.basename(f) for f in os.listdir(source_absolute) if f.endswith(".css")]
+    to_delete = [os.path.basename(f) for f in os.listdir(web_absolute) if f.endswith(".css") and f not in change_copy]
+    for f in to_delete:
+        os.remove(os.path.join(web_absolute, f))
+ 
     for f in change_copy:
         with open(os.path.join(source_absolute, f)) as FO:
             filecontent = FO.read()
