@@ -131,13 +131,15 @@ def maybe_adjust_filename_for_2136(filename):
     return filename
 
 def replace_css(web_content, context): 
+    should_reinsert_webviewcss = "css/webview.css" in web_content.css
     for idx, filename in enumerate(web_content.css): 
         filename = maybe_adjust_filename_for_2136(filename)
         if filename in css_files_to_replace:
             web_content.css[idx] = f"/_addons/{addonfoldername}/web/css/{filename}"
             web_content.css.append(f"/_addons/{addonfoldername}/user_files/css/custom_{filename}")
     # Insert webview.css back so that Anki adds some dynamic styles (e.g. font-family) that are only added if it exists
-    web_content.css.insert(0, "css/webview.css")
+    if should_reinsert_webviewcss:
+        web_content.css.insert(0, "css/webview.css")
 
 gui_hooks.webview_will_set_content.append(replace_css)
 
