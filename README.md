@@ -10,6 +10,16 @@
 
 <b>Gear icons</b> were obtained from [Wikimedia Commons](https://commons.wikimedia.org/wiki/Category:Noto_Color_Emoji_Pie)
 
+## Add image to ipad background
+Add this code to the note styling to add a background image to the ipad when reviewing:
+```
+/*IPAD custom background image - */
+
+.ipad .card {
+    background-image: url(“insert link to any image from online.png”);
+}
+```
+
 ---
 **Please consider supporting us via:**
 
