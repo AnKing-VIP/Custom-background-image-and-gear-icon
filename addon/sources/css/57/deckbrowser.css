@@ -338,7 +338,7 @@ table {
     box-shadow: 0px 2px 1px -1px rgba(20, 20, 20, .12), 0px 1px 1px 0px rgba(20, 20, 20, .06), 0px 1px 3px 0px rgba(20, 20, 20, .04);
     transition: box-shadow var(--transition) ease-in-out;
     background: var(--canvas-glass);
-    backdrop-filter: blur(var(--blur))
+    /* backdrop-filter: blur(var(--blur)) */
 }
 
 .fancy table:hover {
@@ -389,7 +389,8 @@ body {
 }
 
 .current td, tr:hover:not(.top-level-drag-row) td {
-    background: var(--border-subtle)
+    /* background: var(--border-subtle) */
+    background: #e4e4e4ad;
 }
 
 .current td:first-child, tr:hover:not(.top-level-drag-row) td:first-child {
