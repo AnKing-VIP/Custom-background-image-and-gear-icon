@@ -17,7 +17,7 @@ from aqt.editor import pics
 from aqt.qt import *
 from aqt.addons import *
 from aqt.utils import openFolder 
-from .adjust_css_files22 import *
+from .adjust_css import *
 
 QDir.addSearchPath("CustomBackground", str(Path(__file__).parent / "AnKing"))
 
@@ -37,7 +37,7 @@ css_folder_for_anki_version = {
     "40": "36","41": "36","42": "36","43": "36","44": "36",
     "45": "36","46": "36","47": "36","48": "36","49": "36",
     "50": "36","51": "36","52": "36","53": "36","54": "36",
-    "55": "55", "56": "55", "57": "57",
+    "55": "55",
 }
 v = str(pointVersion())
 
@@ -47,82 +47,34 @@ else:  # for newer Anki versions try the latest version and hope for the best
     version_folder = css_folder_for_anki_version[max(css_folder_for_anki_version, key=int)]
 
 
-source_absolute = os.path.join(addon_path, "sources", "css", version_folder)
-web_absolute = os.path.join(addon_path, "web", "css")
-
 regex = r"(user_files.*|web.*)"
 mw.addonManager.setWebExports(__name__, regex)
-
-
-def update_css():
-    # on startup: combine template files with config and write into webexports folder
-    change_copy = [os.path.basename(f) for f in os.listdir(source_absolute) if f.endswith(".css")]
-    to_delete = [os.path.basename(f) for f in os.listdir(web_absolute) if f.endswith(".css") and f not in change_copy]
-    for f in to_delete:
-        os.remove(os.path.join(web_absolute, f))
- 
-    for f in change_copy:
-        with open(os.path.join(source_absolute, f)) as FO:
-            filecontent = FO.read()
-
-        if v == 22:
-            if f == "deckbrowser.css":
-                filecontent = adjust_deckbrowser_css22(filecontent)
-            if f == "toolbar.css" and gc("Toolbar image"):
-                filecontent = adjust_toolbar_css22(filecontent)
-            if f == "overview.css":
-                filecontent = adjust_overview_css22(filecontent)
-            if f == "toolbar-bottom.css" and gc("Toolbar image"):
-                filecontent = adjust_bottomtoolbar_css22(filecontent)
-            if f == "reviewer.css" and gc("Reviewer image"):
-                filecontent = adjust_reviewer_css22(filecontent)
-            if f == "reviewer-bottom.css" and gc("Reviewer image") and gc("Toolbar image"):
-                filecontent = adjust_reviewerbottom_css22(filecontent)                        
-
-        # for later versions: try the latest
-        # this code will likely change when new Anki versions are released which might require 
-        # updates of this add-on.
-        else: 
-            if f == "deckbrowser.css":
-                filecontent = adjust_deckbrowser_css22(filecontent)
-            if f == "toolbar.css" and gc("Toolbar image"):
-                filecontent = adjust_toolbar_css22(filecontent)
-            if f == "overview.css":
-                filecontent = adjust_overview_css22(filecontent)
-            if f == "toolbar-bottom.css" and gc("Toolbar image"):
-                filecontent = adjust_bottomtoolbar_css22(filecontent)
-            if f == "reviewer.css" and gc("Reviewer image"):
-                filecontent = adjust_reviewer_css22(filecontent)
-            if f == "reviewer-bottom.css": #and gc("Reviewer image"):
-                filecontent = adjust_reviewerbottom_css22(filecontent)                           
-
-        with open(os.path.join(web_absolute, f), "w") as FO:
-            FO.write(filecontent)
-update_css()
 
 #reset background when refreshing page (for use with "random" setting)
 def reset_background(new_state, old_state):
     if new_state == "deckBrowser":
-        update_css()
         from anki import version as anki_version
         old_anki = tuple(int(i) for i in anki_version.split(".")) < (2, 1, 27)
-
+        mw.deckBrowser.show()
         if not old_anki:        
             #mw.reset(True)
             # Anki 2.1.28 and up no longer fully redraw the toolbar on mw reset,
             # so trigger the redraw manually:
             mw.toolbar.draw()
+
 gui_hooks.state_did_change.append(reset_background)
 
 #reset background when changing config
 def apply_config_changes(config):
-    update_css()
     mw.moveToState("deckBrowser") 
     #mw.toolbar.draw()
 mw.addonManager.setConfigUpdatedAction(__name__, apply_config_changes)
 
 
-css_files_to_replace = [os.path.basename(f) for f in os.listdir(web_absolute) if f.endswith(".css")]
+css_files_to_modify = [
+    "webview.css", "deckbrowser.css", "overview.css", "reviewer-bottom.css",
+    "toolbar-bottom.css", "reviewer.css", "toolbar.css",
+]
 
 from anki.utils import pointVersion 
 def maybe_adjust_filename_for_2136(filename): 
@@ -130,18 +82,46 @@ def maybe_adjust_filename_for_2136(filename):
         filename = filename.lstrip("css/") 
     return filename
 
-def replace_css(web_content, context): 
-    should_reinsert_webviewcss = "css/webview.css" in web_content.css
-    for idx, filename in enumerate(web_content.css): 
+def inject_css(web_content, context):
+    for filename in web_content.css.copy():
         filename = maybe_adjust_filename_for_2136(filename)
-        if filename in css_files_to_replace:
-            web_content.css[idx] = f"/_addons/{addonfoldername}/web/css/{filename}"
+        if filename in css_files_to_modify:
+            web_content.css.append(f"/_addons/{addonfoldername}/web/css/{version_folder}/{filename}")
             web_content.css.append(f"/_addons/{addonfoldername}/user_files/css/custom_{filename}")
-    # Insert webview.css back so that Anki adds some dynamic styles (e.g. font-family) that are only added if it exists
-    if should_reinsert_webviewcss:
-        web_content.css.insert(0, "css/webview.css")
 
-gui_hooks.webview_will_set_content.append(replace_css)
+        f = filename
+        css = ''
+        if v == 22:
+            if f == "deckbrowser.css":
+                css = adjust_deckbrowser_css()
+            if f == "toolbar.css" and gc("Toolbar image"):
+                css = adjust_toolbar_css()
+            if f == "overview.css":
+                css = adjust_overview_css()
+            if f == "toolbar-bottom.css" and gc("Toolbar image"):
+                css = adjust_bottomtoolbar_css()
+            if f == "reviewer.css" and gc("Reviewer image"):
+                css = adjust_reviewer_css()
+            if f == "reviewer-bottom.css" and gc("Reviewer image") and gc("Toolbar image"):
+                css = adjust_reviewerbottom_css()               
+        else:
+            if f == "deckbrowser.css":
+                css = adjust_deckbrowser_css()
+            if f == "toolbar.css" and gc("Toolbar image"):
+                css = adjust_toolbar_css()
+            if f == "overview.css":
+                css = adjust_overview_css()
+            if f == "toolbar-bottom.css" and gc("Toolbar image"):
+                css = adjust_bottomtoolbar_css()
+            if f == "reviewer.css" and gc("Reviewer image"):
+                css = adjust_reviewer_css()
+            if f == "reviewer-bottom.css": #and gc("Reviewer image"):
+                css = adjust_reviewerbottom_css()
+        if css:
+            web_content.head += f"<style>{css}</style>"
+
+
+gui_hooks.webview_will_set_content.append(inject_css)
 
 
 def get_gearfile():
