@@ -1,0 +1,6 @@
+.current {
+  background-color: rgba(231, 231, 231, 0.3) /*  #e7e7e7; */
+}
+.nightMode .current {
+  background-color: rgba(41, 41, 43, 0.3); /* #29292B; */
+}
