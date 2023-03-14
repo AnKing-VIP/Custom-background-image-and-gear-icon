@@ -5,6 +5,7 @@
     "Reviewer image": true,
     "Toolbar image": true,
     "Toolbar top/bottom": true,
+    "Use Default Background": true,
     "background-attachment": "fixed",
     "background-color bottom": "",
     "background-color main": "",

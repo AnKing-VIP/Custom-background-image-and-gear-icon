@@ -119,6 +119,7 @@ class SettingsDialog(QDialog):
             f.checkBox_reviewer: ("Reviewer image",),
             f.checkBox_toolbar: ("Toolbar image",),
             f.checkBox_topbottom: ("Toolbar top/bottom",),
+            f.checkBox_defaultfiles: ("Use Default Background",),
         }
         for cb,args in controller.items():
             cb.stateChanged.connect(
@@ -188,6 +189,10 @@ class SettingsDialog(QDialog):
         c = conf["Toolbar top/bottom"]
         if f.checkBox_topbottom.isChecked() != c:
             f.checkBox_topbottom.click()
+
+        c = conf["Use Default Background"]
+        if f.checkBox_defaultfiles.isChecked() != c:
+            f.checkBox_defaultfiles.click()
 
         # Comboboxes -------------
         c = conf["background-attachment"]
