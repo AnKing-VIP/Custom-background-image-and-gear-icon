@@ -61,10 +61,30 @@ def add_bg_img(imgname, location, review=False):
     return css
 
 def get_bg_img():
+    default_filenames=[
+        'AnKing.png',
+        'Beach.png',
+        'BeachAerial.png',
+        'Christ&Surgeon.png',
+        'ColorfulLights.png',
+        'Fire.png',
+        'Island.png',
+        'Milkyway.png',
+        'MoonMountains.png',
+        'NightSky.png',
+        'Ocean.png',
+        'Seashore.png',
+        'SLCtemple.png',
+        'Sunset.png',
+        'SunsetMountain.png'
+    ]
     bg_abs_path = os.path.join(addon_path, "user_files", "background")
     bgimg_list = [os.path.basename(f) for f in os.listdir(bg_abs_path) if f.endswith(pics)]
     val = gc("Image name for background")
+    use_default = gc("Use Default Background")
     if val and val.lower() == "random":
+        if not use_default:
+            bgimg_list = [img for img in bgimg_list if img not in default_filenames]          
         return random.choice(bgimg_list)
     if val in bgimg_list:
         return val
