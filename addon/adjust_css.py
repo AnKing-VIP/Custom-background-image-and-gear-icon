@@ -3,6 +3,7 @@
 # License: GNU AGPL, version 3 or later; http://www.gnu.org/licenses/agpl.html
 
 import os
+import shutil
 import random
 
 from aqt.editor import pics
@@ -61,6 +62,9 @@ def add_bg_img(imgname, location, review=False):
     return css
 
 def get_bg_img():
+    if not os.listdir(os.path.join(addon_path, "user_files", "background")):
+        shutil.copytree(src=os.path.join(addon_path, "user_files", "default_background"), dst=os.path.join(addon_path, "user_files", "background"), dirs_exist_ok=True)
+
     bg_abs_path = os.path.join(addon_path, "user_files", "background")
     bgimg_list = [os.path.basename(f) for f in os.listdir(bg_abs_path) if f.endswith(pics)]
     val = gc("Image name for background")
