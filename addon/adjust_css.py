@@ -62,10 +62,10 @@ def add_bg_img(imgname, location, review=False):
     return css
 
 def get_bg_img():
-    if not os.listdir(os.path.join(addon_path, "user_files", "background")):
-        shutil.copytree(src=os.path.join(addon_path, "user_files", "default_background"), dst=os.path.join(addon_path, "user_files", "background"), dirs_exist_ok=True)
-
     bg_abs_path = os.path.join(addon_path, "user_files", "background")
+    if not os.listdir(bg_abs_path):
+        shutil.copytree(src=os.path.join(addon_path, "user_files", "default_background"), dst=bg_abs_path, dirs_exist_ok=True)
+
     bgimg_list = [os.path.basename(f) for f in os.listdir(bg_abs_path) if f.endswith(pics)]
     val = gc("Image name for background")
     if val and val.lower() == "random":
