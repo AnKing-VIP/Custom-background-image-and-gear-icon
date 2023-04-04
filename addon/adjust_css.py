@@ -63,6 +63,7 @@ def add_bg_img(imgname, location, review=False):
 
 def get_bg_img():
     bg_abs_path = os.path.join(addon_path, "user_files", "background")
+    os.makedirs(bg_abs_path, exist_ok=True)
     if not os.listdir(bg_abs_path):
         shutil.copytree(src=os.path.join(addon_path, "user_files", "default_background"), dst=bg_abs_path, dirs_exist_ok=True)
 
