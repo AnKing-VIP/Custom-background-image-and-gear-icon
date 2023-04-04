@@ -126,6 +126,10 @@ gui_hooks.webview_will_set_content.append(inject_css)
 
 def get_gearfile():
     gear_abs = os.path.join(addon_path, "user_files", "gear")
+    os.makedirs(gear_abs, exist_ok=True)
+    if not os.listdir(gear_abs):
+        shutil.copytree(src=os.path.join(addon_path, "user_files", "default_gear"), dst=gear_abs, dirs_exist_ok=True)
+
     gear_list = [os.path.basename(f) for f in os.listdir(gear_abs) if f.endswith(pics)]
     val = gc("Image name for gear")
     if val and val.lower() == "random":
