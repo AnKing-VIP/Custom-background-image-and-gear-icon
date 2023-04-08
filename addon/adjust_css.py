@@ -91,7 +91,7 @@ def adjust_deckbrowser_css():
     if gc("Image name for gear") != "gears.svg":
         cont += """
 .nightMode .gears {
-  filter: revert;
+  filter: none;
 }
 """
     return cont
