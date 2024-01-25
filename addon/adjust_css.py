@@ -108,6 +108,10 @@ def adjust_overview_css():
     cont = add_bg_img(imgname, "body")
     return cont
 
+def adjust_congrats_css():
+    cont = add_bg_img(imgname, "body")
+    return cont
+
 def adjust_reviewer_css():
     cont = add_bg_img(imgname, "body", True)
     return cont    

@@ -7,6 +7,7 @@
 import os
 import random
 from pathlib import Path
+import json
 
 from anki.utils import pointVersion
 from aqt import mw
@@ -103,7 +104,7 @@ def inject_css(web_content, context):
             if f == "reviewer.css" and gc("Reviewer image"):
                 css = adjust_reviewer_css()
             if f == "reviewer-bottom.css" and gc("Reviewer image") and gc("Toolbar image"):
-                css = adjust_reviewerbottom_css()               
+                css = adjust_reviewerbottom_css()
         else:
             if f == "deckbrowser.css":
                 css = adjust_deckbrowser_css()
@@ -120,9 +121,23 @@ def inject_css(web_content, context):
         if css:
             web_content.head += f"<style>{css}</style>"
 
+def inject_css_into_ts_page(web):
+    page = os.path.basename(web.page().url().path())
+    if page != "congrats.html":
+        return
+    css = adjust_congrats_css()
+    web.eval(
+        """
+(() => {
+    const style = document.createElement("style");
+    style.textContent= %s;
+    document.head.appendChild(style);
+})();
+""" % json.dumps(css)
+    )
 
 gui_hooks.webview_will_set_content.append(inject_css)
-
+gui_hooks.webview_did_inject_style_into_page.append(inject_css_into_ts_page)
 
 def get_gearfile():
     gear_abs = os.path.join(addon_path, "user_files", "gear")
