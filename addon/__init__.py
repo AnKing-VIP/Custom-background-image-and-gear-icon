@@ -92,31 +92,21 @@ def inject_css(web_content, context):
 
         f = filename
         css = ''
-        if v == 22:
-            if f == "deckbrowser.css":
-                css = adjust_deckbrowser_css()
-            if f == "toolbar.css" and gc("Toolbar image"):
-                css = adjust_toolbar_css()
-            if f == "overview.css":
-                css = adjust_overview_css()
-            if f == "toolbar-bottom.css" and gc("Toolbar image"):
-                css = adjust_bottomtoolbar_css()
-            if f == "reviewer.css" and gc("Reviewer image"):
-                css = adjust_reviewer_css()
-            if f == "reviewer-bottom.css" and gc("Reviewer image") and gc("Toolbar image"):
-                css = adjust_reviewerbottom_css()
-        else:
-            if f == "deckbrowser.css":
-                css = adjust_deckbrowser_css()
-            if f == "toolbar.css" and gc("Toolbar image"):
-                css = adjust_toolbar_css()
-            if f == "overview.css":
-                css = adjust_overview_css()
-            if f == "toolbar-bottom.css" and gc("Toolbar image"):
-                css = adjust_bottomtoolbar_css()
-            if f == "reviewer.css" and gc("Reviewer image"):
-                css = adjust_reviewer_css()
-            if f == "reviewer-bottom.css": #and gc("Reviewer image"):
+        if f == "deckbrowser.css":
+            css = adjust_deckbrowser_css()
+        if f == "toolbar.css" and gc("Toolbar image"):
+            css = adjust_toolbar_css()
+        if f == "overview.css":
+            css = adjust_overview_css()
+        if f == "toolbar-bottom.css" and gc("Toolbar image"):
+            css = adjust_bottomtoolbar_css()
+        if f == "reviewer.css" and gc("Reviewer image"):
+            css = adjust_reviewer_css()
+        if f == "reviewer-bottom.css":
+            if v == 22:
+                if gc("Reviewer image") and gc("Toolbar image"):
+                    css = adjust_reviewerbottom_css()
+            else:
                 css = adjust_reviewerbottom_css()
         if css:
             web_content.head += f"<style>{css}</style>"
