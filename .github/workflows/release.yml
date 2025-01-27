@@ -50,9 +50,9 @@ jobs:
           cd "$base_path"
       
       - name: Create github release and upload ankiaddon file
-        uses: svenstaro/upload-release-action@2.2.1
+        uses: softprops/action-gh-release@v2
         with:
-          repo_token: ${{ github.token }}
-          file: ${{ env.ADDON_FILE_NAME }}
-          tag: ${{ github.event.inputs.version }}
-          release_name: ${{ env.ADDON_NAME }} v${{ github.event.inputs.version }}
+          token: ${{ github.token }}
+          files: ${{ env.ADDON_FILE_NAME }}
+          tag_name: ${{ github.event.inputs.version }}
+          name: ${{ env.ADDON_NAME }} v${{ github.event.inputs.version }}
