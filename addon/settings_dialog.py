@@ -328,4 +328,3 @@ class Ui_Dialog(object):
         self.toolButton_patreon.setText(_translate("Dialog", "..."))
         self.toolButton_instagram.setText(_translate("Dialog", "..."))
         self.toolButton_facebook.setText(_translate("Dialog", "..."))
-import icons_rc
