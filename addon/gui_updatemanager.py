@@ -10,7 +10,7 @@ import os
 from aqt.qt import *
 from aqt import mw
 from aqt.utils import getFile, openFolder, openLink
-from anki import version as anki_version
+from anki.utils import pointVersion
 
 try:
     from .settings_dialog_qt6 import Ui_Dialog
@@ -319,11 +319,10 @@ class SettingsDialog(QDialog):
         if self.timer:
             self.timer.stop()
 
-        anki_version_tuple = tuple(int(i) for i in anki_version.split("."))
-        if anki_version_tuple < (2, 1, 27):        
+        if pointVersion() < 27:
             self.timer = mw.progress.timer(
                 ms, lambda:mw.reset(True), False)  
-        elif anki_version_tuple < (2, 1, 45):
+        elif pointVersion() < 45:
             self.timer = mw.progress.timer(
                 ms, self._resetMainWindow, False)
         else:

@@ -54,10 +54,8 @@ mw.addonManager.setWebExports(__name__, regex)
 #reset background when refreshing page (for use with "random" setting)
 def reset_background(new_state, old_state):
     if new_state == "deckBrowser":
-        from anki import version as anki_version
-        old_anki = tuple(int(i) for i in anki_version.split(".")) < (2, 1, 27)
         mw.deckBrowser.show()
-        if not old_anki:        
+        if pointVersion() >= 27:
             #mw.reset(True)
             # Anki 2.1.28 and up no longer fully redraw the toolbar on mw reset,
             # so trigger the redraw manually:
