@@ -111,8 +111,12 @@ def inject_css(web_content, context):
 
 def inject_css_into_ts_page(web):
     page = os.path.basename(web.page().url().path())
-    if page != "congrats.html":
-        return
+    # Handle both old and new formats
+    if page not in ("congrats.html", "congrats", ""):
+        # If page is empty, check the full path
+        if "congrats" not in web.page().url().path():
+            return
+    
     css = adjust_congrats_css()
     web.eval(
         """
